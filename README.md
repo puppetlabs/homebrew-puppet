@@ -13,7 +13,7 @@ brew cask install puppetlabs/puppet/<package>
 To install [Bolt](https://github.com/puppetlabs/bolt) with brew run
 
 ```
-brew cask install puppetlabs/puppet/puppet-bolt`
+brew cask install puppetlabs/puppet/puppet-bolt
 ```
 
 This will install bolt to `/opt/puppetlabs/bin/bolt`, so to use bolt add `/opt/puppetlabs/bin` to your path
