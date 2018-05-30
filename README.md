@@ -1,6 +1,6 @@
 # Homebrew Puppet
 
-A tap for OSX package distribution without bureaucracy
+A tap for [Puppet](https://puppet.com) OSX packages
 
 ## How do I install these packages?
 
