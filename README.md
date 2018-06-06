@@ -36,3 +36,21 @@ shell's PATH, however you may have to relaunch your terminal session before `pdk
 If you use ZShell (zsh), you will have to take additional steps before `pdk` can be found on your PATH, see
 the [PDK Troubleshooting](https://puppet.com/docs/pdk/1.x/pdk_troubleshooting.html#pdk-not-in-zshell-path-on-mac-os-x) docs
 to learn more.
+
+## Migrating from pre-tap installations
+
+If you previously installed the PDK or Bolt from homebrew before this tap existed, you will see errors about the keg not existing or the cask already being installed.
+
+To remedy that, simply add the `puppetlabs/puppet` tap after updating homebrew:
+
+```
+brew update
+brew tap puppetlabs/puppet
+```
+
+After tapping, you can refer to the packages by their short name when interacting with them. For example:
+
+```
+brew cask upgrade pdk
+```
+
