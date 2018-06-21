@@ -16,11 +16,10 @@ cask 'pdk' do
     }
   }
 
-  case MacOS.version
-  when :high_sierra
+  if MacOS.version == :high_sierra
     sha = version_map[:high_sierra][:sha]
     os_ver = version_map[:high_sierra][:ver]
-  when :sierra
+  elsif MacOS.version == :sierra
     sha = version_map[:sierra][:sha]
     os_ver = version_map[:sierra][:ver]
   else
