@@ -37,6 +37,14 @@ If you use ZShell (zsh), you will have to take additional steps before `pdk` can
 the [PDK Troubleshooting](https://puppet.com/docs/pdk/1.x/pdk_troubleshooting.html#pdk-not-in-zshell-path-on-mac-os-x) docs
 to learn more.
 
+### Puppet Agent
+
+To install [Puppet Agent](https://github.com/puppetlabs/puppet-agent) with brew:
+
+```
+brew cask install puppetlabs/puppet/puppet-agent
+```
+
 ## Migrating from pre-tap installations
 
 If you previously installed the PDK or Bolt from homebrew before this tap existed, you will see errors about the keg not existing or the cask already being installed.
