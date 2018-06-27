@@ -10,7 +10,7 @@ cask 'puppet-bolt' do
   end
 
   # downloads.puppetlabs.com/mac was verified as official when first introduced to the cask
-  url "http://downloads.puppetlabs.com/mac/#{MacOS.version}/PC1/x86_64/puppet-bolt-#{version}-1.osx#{MacOS.version}.dmg"
+  url "http://downloads.puppetlabs.com/mac/puppet5/#{MacOS.version}/x86_64/puppet-bolt-#{version}-1.osx#{MacOS.version}.dmg"
   name 'Puppet Bolt'
   homepage 'https://github.com/puppetlabs/bolt'
 
