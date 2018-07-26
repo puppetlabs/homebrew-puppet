@@ -3,7 +3,7 @@ cask 'pdk' do
 
   version_map = {
     high_sierra: { 
-      sha: '883cab7a8b99bc5bd56b998b2ff09551dc5b576b809c668e7dcb9257489cb95c',
+      sha: '99c2b03753bd054625160b08a30e1e572f3ae15736b66fba1628d8aef56398fe',
       ver: '10.13'
     },
     sierra: {
@@ -11,7 +11,7 @@ cask 'pdk' do
       ver: '10.12'
     },
     el_capitan: {
-      sha: '99c2b03753bd054625160b08a30e1e572f3ae15736b66fba1628d8aef56398fe',
+      sha: '883cab7a8b99bc5bd56b998b2ff09551dc5b576b809c668e7dcb9257489cb95c',
       ver: '10.11'
     }
   }
