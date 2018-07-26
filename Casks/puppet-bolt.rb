@@ -1,12 +1,12 @@
 cask 'puppet-bolt' do
-  version '0.21.3'
+  version '0.21.4'
 
   if MacOS.version == :el_capitan
-    sha256 '65316da4dc80b7ba09d263f92c6ab7f1a031d75f9c067a840ba52433dea91b7a'
+    sha256 'd72ee404eb4f233ef65eb4962e05d21935406d10296da97bb8198d054bc467a0'
   elsif MacOS.version == :sierra
-    sha256 '17e3e82b6493aa19d17c726bcd430203541b1ffe8501da2f823298c317b4e707'
+    sha256 '9792b240d773acaf94e02f8fcf89f8bd284e64ce9714b205cce60e0970771ae9'
   else
-    sha256 '46b4c87aaf493acfacd29157e4de0ec18aebaf64e01399d57d8ac4d6c8c0747b'
+    sha256 '8c64f3a39a504b1c007cbd9103b1d0601df0f29f787ec1c100c3bf60b7ff18bf'
   end
 
   # downloads.puppetlabs.com/mac was verified as official when first introduced to the cask
