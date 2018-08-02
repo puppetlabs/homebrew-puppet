@@ -54,3 +54,10 @@ After tapping, you can refer to the packages by their short name when interactin
 brew cask upgrade pdk
 ```
 
+## Updating versions
+
+When new versions of packages are shipped, you can use a Rake task to update the Cask to the latest version and SHAs
+
+```
+rake 'brew:cask[puppet-bolt]'
+```
