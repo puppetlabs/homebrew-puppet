@@ -1,7 +1,7 @@
 cask 'pdk' do
   version '<%= latest_version %>'
 
-  case MacOS.version
+  case MacOS.version.to_sym
 <% os_versions.values.zip(shas).each do |name, sha| -%>
   when :<%= name %>
     sha256 '<%= sha %>'
