@@ -1,14 +1,14 @@
 cask 'pdk' do
   version '<%= latest_version %>'
 
-  case MacOS.version
+  case MacOS.version.to_sym
 <% os_versions.values.zip(shas).each do |name, sha| -%>
   when :<%= name %>
     sha256 '<%= sha %>'
 <% end -%>
   end
 
-  url "https://downloads.puppet.com/mac/puppet5/#{MacOS.version}/x86_64/pdk-#{version}-1.osx#{MacOS.version}.dmg"
+  url "<%= url %>"
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'
 

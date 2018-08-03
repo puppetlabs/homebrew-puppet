@@ -21,9 +21,11 @@ namespace :brew do
     os_versions = { '10.11' => :el_capitan, '10.12' => :sierra, '10.13' => :high_sierra }
     latest_version = nil
 
-    shas = Net::HTTP.start('downloads.puppet.com', use_ssl: true) do |http|
+    host = 'downloads.puppet.com'
+    path_pre = '/mac/puppet5/'
+    shas = Net::HTTP.start(host, use_ssl: true) do |http|
       latest_version = os_versions.keys.map do |ver|
-        resp = fetch(http, "/mac/puppet5/#{ver}/x86_64")
+        resp = fetch(http, "#{path_pre}#{ver}/x86_64")
         raise "Request for listing failed: #{resp.body}" unless resp.kind_of? Net::HTTPSuccess
         resp.body.scan(/#{pkg}-(\d+\.\d+\.\d+(?:\.\d+)?)-\d\.osx#{ver}\.dmg/).map(&:first).sort.last
       end.uniq
@@ -37,6 +39,7 @@ namespace :brew do
       end
     end
 
+    url = "https://#{host}#{path_pre}"+'#{MacOS.version}/x86_64/'+pkg+'-#{version}-1.osx#{MacOS.version}.dmg'
     cask = ERB.new(File.read(File.join(__dir__, 'templates', "#{pkg}.rb.erb")), 0, '-')
     File.write(File.join(__dir__, 'Casks', "#{pkg}.rb"), cask.result(binding))
   end

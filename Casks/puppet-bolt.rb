@@ -1,7 +1,7 @@
 cask 'puppet-bolt' do
   version '0.21.5'
 
-  case MacOS.version
+  case MacOS.version.to_sym
   when :el_capitan
     sha256 '3f4ee7a24ffb30553383f31b19dd9049a22c355cb46b3a36e03292a4fdcd5dc4'
   when :sierra
