@@ -1,20 +1,7 @@
 cask 'pdk' do
-  version '<%= latest_version %>'
-
-  case MacOS.version.to_sym
-<% os_versions.values.zip(shas).each do |name, sha| -%>
-  when :<%= name %>
-    sha256 '<%= sha %>'
-<% end -%>
-  end
-
-  url "<%= url %>"
+<%= source_stanza %>
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'
-
-  depends_on macos: '>= 10.11'
-
-  pkg "pdk-#{version}-1-installer.pkg"
 
   uninstall pkgutil: 'com.puppetlabs.pdk'
 end
