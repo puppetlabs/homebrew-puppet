@@ -1,13 +1,13 @@
 cask 'puppet-bolt' do
-  version '0.21.5'
+  version '0.21.6'
 
   case MacOS.version.to_sym
   when :el_capitan
-    sha256 '3f4ee7a24ffb30553383f31b19dd9049a22c355cb46b3a36e03292a4fdcd5dc4'
+    sha256 'ea2a4cfed3e2b5c35020788506fd195166083aeef0d9d45a8f3522c9cd129727'
   when :sierra
-    sha256 'e3f9bf05bbd3b1cb388011883398823cfc512a24baa8311a782f04366cedd37c'
+    sha256 '20c9a2abc3ddfcbc8d94681222cad7814fe4881bff51d571e3ce256aecbdcb14'
   when :high_sierra
-    sha256 '565476058d6ae0db02d290aa810d5de67585623e5c79a9220e7f54881ed2af81'
+    sha256 '7bd2f8e73b4526616cdc6f87fc355dc1cb2ae6a79075e86a2c83d08040b1b3f9'
   end
 
   url "https://downloads.puppet.com/mac/puppet5/#{MacOS.version}/x86_64/puppet-bolt-#{version}-1.osx#{MacOS.version}.dmg"
