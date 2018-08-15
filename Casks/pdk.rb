@@ -1,39 +1,20 @@
 cask 'pdk' do
-  version '1.6.1.0'
+  version '1.7.0.0'
 
-  version_map = {
-    high_sierra: { 
-      sha: '99c2b03753bd054625160b08a30e1e572f3ae15736b66fba1628d8aef56398fe',
-      ver: '10.13'
-    },
-    sierra: {
-      sha: '1ab0bebdc30c7746224ed1b0301800c19212e21ee7a6ceb12846260ae05e333e',
-      ver: '10.12'
-    },
-    el_capitan: {
-      sha: '883cab7a8b99bc5bd56b998b2ff09551dc5b576b809c668e7dcb9257489cb95c',
-      ver: '10.11'
-    }
-  }
-
-  if MacOS.version == :high_sierra
-    sha = version_map[:high_sierra][:sha]
-    os_ver = version_map[:high_sierra][:ver]
-  elsif MacOS.version == :sierra
-    sha = version_map[:sierra][:sha]
-    os_ver = version_map[:sierra][:ver]
-  else
-    sha = version_map[:el_capitan][:sha]
-    os_ver = version_map[:el_capitan][:ver]
+  case MacOS.version.to_sym
+  when :el_capitan
+    sha256 '451fc9fda86bd8df0a1be72c6145f433828075e304750df125b47e4c30a3567e'
+  when :sierra
+    sha256 'ae81c8fe3009d1e74fca4c81e8d635f86207dd8c40f2af057b7544c825e8b8b2'
+  when :high_sierra
+    sha256 '484d8a317db2074d10c0c89818bbf712412e2bb493ae6464a6575990f114211b'
   end
 
-  sha256 sha
-  url "https://puppet-pdk.s3.amazonaws.com/pdk/#{version}/repos/apple/#{os_ver}/PC1/x86_64/pdk-#{version}-1.osx#{os_ver}.dmg"
-
+  url "https://downloads.puppet.com/mac/puppet5/#{MacOS.version}/x86_64/pdk-#{version}-1.osx#{MacOS.version}.dmg"
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'
 
-  depends_on macos: '>= :el_capitan'
+  depends_on macos: '>= 10.11'
 
   pkg "pdk-#{version}-1-installer.pkg"
 
