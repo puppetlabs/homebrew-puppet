@@ -1,0 +1,17 @@
+cask 'puppet-agent' do
+<%= source_stanza %>
+  name 'Puppet Agent'
+  homepage "https://puppet.com/docs/puppet/#{version.major_minor}/about_agent.html"
+
+  uninstall launchctl: [
+                         'puppet',
+                         'pxp-agent',
+                         'mcollective',
+                       ],
+            pkgutil:   'com.puppetlabs.puppet-agent'
+
+  zap trash: [
+               '~/.puppetlabs',
+               '/etc/puppetlabs',
+             ]
+end

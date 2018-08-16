@@ -18,28 +18,31 @@ namespace :brew do
   desc 'Update SHAs for a specific package: rake brew:cask[puppet-bolt]'
   task :cask, [:pkg] do |task, args|
     pkg = args[:pkg]
-    os_versions = { '10.11' => :el_capitan, '10.12' => :sierra, '10.13' => :high_sierra }
-    latest_version = nil
+    os_versions = %w[10.10 10.11 10.12 10.13]
 
     host = 'downloads.puppet.com'
     path_pre = '/mac/puppet5/'
-    shas = Net::HTTP.start(host, use_ssl: true) do |http|
-      latest_version = os_versions.keys.map do |ver|
-        resp = fetch(http, "#{path_pre}#{ver}/x86_64")
+    package_triples = Net::HTTP.start(host, use_ssl: true) do |http|
+      latest_versions = os_versions.map do |os_ver|
+        resp = fetch(http, "#{path_pre}#{os_ver}/x86_64")
         raise "Request for listing failed: #{resp.body}" unless resp.kind_of? Net::HTTPSuccess
-        resp.body.scan(/#{pkg}-(\d+\.\d+\.\d+(?:\.\d+)?)-\d\.osx#{ver}\.dmg/).map(&:first).sort.last
-      end.uniq
-      raise "Expected a single latest version: #{latest_version}" unless latest_version.count == 1
-      latest_version = latest_version.first
-      puts "Getting SHA256 sums for #{pkg} #{latest_version}"
-
-      os_versions.keys.map do |ver|
-        resp = http.get("/mac/puppet5/#{ver}/x86_64/#{pkg}-#{latest_version}-1.osx#{ver}.dmg")
-        Digest::SHA256.hexdigest(resp.body)
+        resp.body.scan(/#{pkg}-(\d+\.\d+\.\d+(?:\.\d+)?)-\d\.osx#{os_ver}\.dmg/).map(&:first).sort.last
       end
+      puts "Getting SHA256 sums for #{pkg}: #{latest_versions}"
+
+      os_versions.zip(latest_versions).map do |os_ver, pkg_ver|
+        if pkg_ver
+          resp = http.get("#{path_pre}#{os_ver}/x86_64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
+          sha = Digest::SHA256.hexdigest(resp.body)
+          [os_ver, pkg_ver, sha]
+        end
+      end.compact
     end
 
     url = "https://#{host}#{path_pre}"+'#{MacOS.version}/x86_64/'+pkg+'-#{version}-1.osx#{MacOS.version}.dmg'
+
+    source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
+
     cask = ERB.new(File.read(File.join(__dir__, 'templates', "#{pkg}.rb.erb")), 0, '-')
     File.write(File.join(__dir__, 'Casks', "#{pkg}.rb"), cask.result(binding))
   end

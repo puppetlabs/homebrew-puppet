@@ -1,0 +1,11 @@
+  case MacOS.version
+<% package_triples.each do |os_ver, pkg_ver, sha| -%>
+  when '<%= os_ver %>'
+    version '<%= pkg_ver %>'
+    sha256 '<%= sha %>'
+<% end -%>
+  end
+
+  depends_on macos: '>= <%= package_triples[0][0] %>'
+  url "<%= url %>"
+  pkg "<%= pkg %>-#{version}-1-installer.pkg"
