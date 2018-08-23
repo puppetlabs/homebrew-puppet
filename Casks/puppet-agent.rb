@@ -7,11 +7,11 @@ cask 'puppet-agent' do
     version '5.5.0'
     sha256 'fe60c24d2b964f161599bf4594c9e871f161707375b81c6b1e998e8cfce13058'
   when '10.12'
-    version '5.5.4'
-    sha256 '07ff138cd5c9c77fb0aa7822f21b5aa52314afebb18a25fca4efb8a86f9d604f'
+    version '5.5.6'
+    sha256 'd6e047acbcba21b8097d52c74292296b7cf1b3e0e951017eca4bf6bb411034cb'
   when '10.13'
-    version '5.5.4'
-    sha256 '5138c22d4c2d75111b23d3a927a26e6a82d936cf2145dbd031e602799edcd1a8'
+    version '5.5.6'
+    sha256 '3b43ab03a6376e52fe9a079c7ba07300585f8cf7ee4d7a76e825599755f493b5'
   end
 
   depends_on macos: '>= 10.10'
