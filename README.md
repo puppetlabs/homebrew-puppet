@@ -69,3 +69,8 @@ When new versions of packages are shipped, you can use a Rake task to update the
 ```
 rake 'brew:cask[puppet-bolt]'
 ```
+
+You can test updated Cask files with
+```
+brew cask install Casks/puppet-bolt.rb --force
+```
