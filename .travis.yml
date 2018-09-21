@@ -10,6 +10,7 @@ env:
     - CASK=pdk
     - CASK=puppet-agent
     - CASK=puppet-bolt
+    - CASK=x-fail-foo
 script:
   - brew cask install Casks/$CASK.rb --force
 matrix:
@@ -18,3 +19,9 @@ matrix:
       env: CASK=pdk
     - osx_image: xcode6.4
       env: CASK=puppet-bolt
+    - osx_image: xcode9.2
+      env: CASK=x-fail-foo
+    - osx_image: xcode8
+      env: CASK=x-fail-foo
+    - osx_image: xcode6.4
+      env: CASK=x-fail-foo
