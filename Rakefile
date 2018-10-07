@@ -51,7 +51,7 @@ namespace :brew do
       end.compact
     end
 
-    url = "https://#{host}#{path_pre}"+'#{MacOS.version}/x86_64/'+pkg+'-#{version}-1.osx#{MacOS.version}.dmg'
+    url = "https://#{host}#{path_pre}"+'#{os_ver}/x86_64/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
 
     source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
 
