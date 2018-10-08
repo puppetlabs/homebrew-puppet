@@ -1,4 +1,4 @@
-cask 'puppet-agent' do
+cask 'puppet-agent-6' do
   case MacOS.version
   when '10.12'
     os_ver = '10.12'
@@ -11,7 +11,7 @@ cask 'puppet-agent' do
   end
 
   depends_on macos: '>= 10.12'
-  url "https://downloads.puppet.com/mac/puppet/#{os_ver}/x86_64/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
+  url "https://downloads.puppet.com/mac/puppet6/#{os_ver}/x86_64/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
   name 'Puppet Agent'

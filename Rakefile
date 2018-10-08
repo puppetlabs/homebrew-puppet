@@ -14,14 +14,26 @@ def fetch(http, req, limit = 10)
   end
 end
 
+PKG_TO_COLLECTIONS = {
+  'puppet-bolt' => 'puppet5',
+  'pdk' => 'puppet5'
+}
+
+def operating_systems(collection)
+  collection == 'puppet5' ? %w[10.10 10.11 10.12 10.13] : %w[10.11 10.12 10.13]
+end
+
 namespace :brew do
-  desc 'Update SHAs for a specific package: rake brew:cask[puppet-bolt]'
-  task :cask, [:pkg] do |task, args|
+  desc 'Update SHAs for a specific package: rake brew:cask[puppet-bolt] or rake brew:cask[puppet-agent,5]'
+  task :cask, [:pkg, :collection] do |task, args|
     pkg = args[:pkg]
-    os_versions = %w[10.10 10.11 10.12 10.13]
+    collection = PKG_TO_COLLECTIONS[pkg] || "puppet#{args[:collection]}"
+    cask = pkg
+    cask += '-' + args[:collection] if args[:collection]
+    os_versions = operating_systems(collection)
 
     host = 'downloads.puppet.com'
-    path_pre = '/mac/puppet5/'
+    path_pre = "/mac/#{collection}/"
     package_triples = Net::HTTP.start(host, use_ssl: true) do |http|
       latest_versions = os_versions.map do |os_ver|
         resp = fetch(http, "#{path_pre}#{os_ver}/x86_64")
@@ -39,12 +51,12 @@ namespace :brew do
       end.compact
     end
 
-    url = "https://#{host}#{path_pre}"+'#{MacOS.version}/x86_64/'+pkg+'-#{version}-1.osx#{MacOS.version}.dmg'
+    url = "https://#{host}#{path_pre}"+'#{os_ver}/x86_64/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
 
     source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
 
-    cask = ERB.new(File.read(File.join(__dir__, 'templates', "#{pkg}.rb.erb")), 0, '-')
-    File.write(File.join(__dir__, 'Casks', "#{pkg}.rb"), cask.result(binding))
+    cask_erb = ERB.new(File.read(File.join(__dir__, 'templates', "#{cask}.rb.erb")), 0, '-')
+    File.write(File.join(__dir__, 'Casks', "#{cask}.rb"), cask_erb.result(binding))
   end
 end
 

@@ -39,11 +39,15 @@ to learn more.
 
 ### Puppet Agent
 
-To install [Puppet Agent](https://github.com/puppetlabs/puppet-agent) with brew:
+To install the very latest [Puppet Agent](https://github.com/puppetlabs/puppet-agent) with brew:
 
 ```
 brew cask install puppetlabs/puppet/puppet-agent
 ```
+
+Additionally we maintain versioned casks for each collection
+- `puppetlabs/puppet/puppet-agent-5`
+- `puppetlabs/puppet/puppet-agent-6`
 
 ## Migrating from pre-tap installations
 
@@ -68,6 +72,11 @@ When new versions of packages are shipped, you can use a Rake task to update the
 
 ```
 rake 'brew:cask[puppet-bolt]'
+```
+
+To update the versioned casks - for example `puppet-agent-5` - include the collection as a 2nd argument
+```
+rake 'brew:cask[puppet-agent,5]'
 ```
 
 You can test updated Cask files with

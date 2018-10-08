@@ -1,20 +1,25 @@
 os: osx
-# These represent OS X 10.10 - 10.13
+# These represent OS X 10.12 - 10.13.
+# Extra matrix entries add OS X 10.10 - 10.11.
 osx_image:
   - xcode10
   - xcode9.2
-  - xcode8
-  - xcode6.4
 env:
   matrix:
     - CASK=pdk
     - CASK=puppet-agent
+    - CASK=puppet-agent-5
+    - CASK=puppet-agent-6
     - CASK=puppet-bolt
 script:
   - brew cask install Casks/$CASK.rb --force
 matrix:
-  exclude:
-    - osx_image: xcode6.4
+  include:
+    - osx_image: xcode8
       env: CASK=pdk
     - osx_image: xcode6.4
+      env: CASK=puppet-agent-5
+    - osx_image: xcode8
+      env: CASK=puppet-agent-5
+    - osx_image: xcode8
       env: CASK=puppet-bolt

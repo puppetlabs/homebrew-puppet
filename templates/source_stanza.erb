@@ -1,9 +1,14 @@
   case MacOS.version
-<% package_triples.each do |os_ver, pkg_ver, sha| -%>
+<% package_triples.take(package_triples.count-1).each do |os_ver, pkg_ver, sha| -%>
   when '<%= os_ver %>'
+    os_ver = '<%= os_ver %>'
     version '<%= pkg_ver %>'
     sha256 '<%= sha %>'
 <% end -%>
+  else
+    os_ver = '<%= package_triples.last[0] %>'
+    version '<%= package_triples.last[1] %>'
+    sha256 '<%= package_triples.last[2] %>'
   end
 
   depends_on macos: '>= <%= package_triples[0][0] %>'
