@@ -5,6 +5,9 @@ osx_image:
   - xcode10
   - xcode9.2
 env:
+  global:
+    - HOMEBREW_LOGS=~/homebrew-logs
+    - HOMEBREW_TEMP=~/homebrew-temp
   matrix:
     - CASK=pdk
     - CASK=puppet-agent
