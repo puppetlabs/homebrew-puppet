@@ -38,7 +38,9 @@ namespace :brew do
       latest_versions = os_versions.map do |os_ver|
         resp = fetch(http, "#{path_pre}#{os_ver}/x86_64")
         raise "Request for listing failed: #{resp.body}" unless resp.kind_of? Net::HTTPSuccess
-        resp.body.scan(/#{pkg}-(\d+\.\d+\.\d+(?:\.\d+)?)-\d\.osx#{os_ver}\.dmg/).map(&:first).sort.last
+        versions = resp.body.scan(/#{pkg}-(\d+\.\d+\.\d+(?:\.\d+)?)-\d\.osx#{os_ver}\.dmg/).map(&:first).uniq
+        versions.sort_by! {|version| Gem::Version.new(version)}
+        versions.last
       end
       puts "Getting SHA256 sums for #{pkg}: #{latest_versions}"
 
