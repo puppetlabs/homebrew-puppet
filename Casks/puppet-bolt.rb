@@ -21,5 +21,9 @@ cask 'puppet-bolt' do
   name 'Puppet Bolt'
   homepage 'https://github.com/puppetlabs/bolt'
 
+  caveats do
+    path_environment_variable '/opt/puppetlabs/bolt/bin'
+  end
+
   uninstall pkgutil: 'com.puppetlabs.puppet-bolt'
 end

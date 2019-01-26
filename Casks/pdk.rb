@@ -21,5 +21,9 @@ cask 'pdk' do
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'
 
+  caveats do
+    path_environment_variable '/opt/puppetlabs/pdk/bin'
+  end
+
   uninstall pkgutil: 'com.puppetlabs.pdk'
 end
