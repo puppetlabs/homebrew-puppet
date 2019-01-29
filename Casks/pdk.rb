@@ -21,9 +21,11 @@ cask 'pdk' do
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'
 
-  caveats do
-    path_environment_variable '/opt/puppetlabs/pdk/bin'
-  end
+  pdk_bins = '/opt/puppetlabs/pdk/bin'
+  caveats %Q(
+    PDK binaries are installed in #{pdk_bins}, which is sourced by an /etc/paths.d entry.
+    #{pdk_bins} may not be included in your current $PATH but should be included in new shells.
+  )
 
   uninstall pkgutil: 'com.puppetlabs.pdk'
 end

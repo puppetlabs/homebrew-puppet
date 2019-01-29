@@ -21,9 +21,11 @@ cask 'puppet-bolt' do
   name 'Puppet Bolt'
   homepage 'https://github.com/puppetlabs/bolt'
 
-  caveats do
-    path_environment_variable '/opt/puppetlabs/bolt/bin'
-  end
+  bolt_bins = '/opt/puppetlabs/bolt/bin'
+  caveats %Q(
+    Puppet Bolt binaries are installed in #{bolt_bins}, which is sourced by an /etc/paths.d entry.
+    #{bolt_bins} may not be included in your current $PATH but should be included in new shells.
+  )
 
   uninstall pkgutil: 'com.puppetlabs.puppet-bolt'
 end
