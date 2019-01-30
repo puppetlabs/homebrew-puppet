@@ -20,7 +20,7 @@ PKG_TO_COLLECTIONS = {
 }
 
 def operating_systems(collection)
-  collection == 'puppet5' ? %w[10.10 10.11 10.12 10.13] : %w[10.11 10.12 10.13]
+  collection == 'puppet5' ? %w[10.10 10.11 10.12 10.13 10.14] : %w[10.11 10.12 10.13 10.14]
 end
 
 namespace :brew do
