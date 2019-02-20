@@ -16,7 +16,7 @@ env:
     - CASK=puppet-agent-6
     - CASK=puppet-bolt
 script:
-  - brew cask install Casks/$CASK.rb --force
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew cask install Casks/$CASK.rb --force
 matrix:
   include:
     - osx_image: xcode8
