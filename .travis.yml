@@ -1,7 +1,8 @@
 os: osx
-# These represent OS X 10.12 - 10.13.
+# These represent OS X 10.12 - 10.14.
 # Extra matrix entries add OS X 10.10 - 10.11.
 osx_image:
+  - xcode10.2
   - xcode10
   - xcode9.2
 env:
