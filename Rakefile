@@ -15,8 +15,8 @@ def fetch(http, req, limit = 10)
 end
 
 PKG_TO_COLLECTIONS = {
-  'puppet-bolt' => 'puppet5',
-  'pdk' => 'puppet5'
+  'puppet-bolt' => 'puppet',
+  'pdk' => 'puppet'
 }
 
 def operating_systems(collection)
