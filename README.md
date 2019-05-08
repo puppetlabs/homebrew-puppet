@@ -8,6 +8,12 @@ A tap for [Puppet](https://puppet.com) OSX packages
 brew cask install puppetlabs/puppet/<package>
 ```
 
+or
+
+```
+brew install puppetlabs/puppet/<package>
+```
+
 ### Bolt
 
 To install [Bolt](https://github.com/puppetlabs/bolt) with brew run
@@ -48,6 +54,16 @@ brew cask install puppetlabs/puppet/puppet-agent
 Additionally we maintain versioned casks for each collection
 - `puppetlabs/puppet/puppet-agent-5`
 - `puppetlabs/puppet/puppet-agent-6`
+
+### Wash
+
+To install [Wash](https://github.com/puppetlabs/wash) with brew:
+
+```
+brew install puppetlabs/puppet/wash
+```
+
+This will build Wash (with Go) and install it to `/usr/local/bin/wash`.
 
 ## Migrating from pre-tap installations
 
