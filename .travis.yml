@@ -9,6 +9,7 @@ env:
   global:
     - HOMEBREW_LOGS=~/homebrew-logs
     - HOMEBREW_TEMP=~/homebrew-temp
+    - HOMEBREW_NO_AUTO_UPDATE=1
   matrix:
     - CASK=pdk
     - CASK=puppet-agent
@@ -16,7 +17,7 @@ env:
     - CASK=puppet-agent-6
     - CASK=puppet-bolt
 script:
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew cask install Casks/$CASK.rb --force
+  - brew cask install Casks/$CASK.rb --force
 matrix:
   include:
     - osx_image: xcode8
@@ -27,3 +28,6 @@ matrix:
       env: CASK=puppet-agent-5
     - osx_image: xcode8
       env: CASK=puppet-bolt
+    - osx_image: xcode10.2
+      env: FORMULA=wash
+      script: brew install Formula/$FORMULA.rb
