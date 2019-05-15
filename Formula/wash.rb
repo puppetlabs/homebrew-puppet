@@ -16,4 +16,8 @@ class Wash < Formula
   test do
     system "#{bin}/wash", "help"
   end
+
+  def caveats
+    "Wash depends on libfuse. You can install it with `brew cask install osxfuse`."
+  end
 end
