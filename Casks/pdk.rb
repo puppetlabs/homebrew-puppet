@@ -2,24 +2,24 @@ cask 'pdk' do
   case MacOS.version
   when '10.11'
     os_ver = '10.11'
-    version '1.10.0.0'
-    sha256 '721005b6b2d367de6d7708d084db3a4dd607024fd112c33396a46c0be0f050e8'
+    version '1.11.0.0'
+    sha256 'c3c604756035fc448779e44e4470ab0017a5497fa01f4595bc06648f1da8ff8f'
   when '10.12'
     os_ver = '10.12'
-    version '1.10.0.0'
-    sha256 '92f7aa4b40aa25ef33db304cc024c093e01af945c4ac3e7d37603ee956ade5b8'
+    version '1.11.0.0'
+    sha256 '30be30ab06889f27c9d61fe9782aa7490cfc846bc1435c55f5b7961040fe0599'
   when '10.13'
     os_ver = '10.13'
-    version '1.10.0.0'
-    sha256 '76bbdd4f09d566621d31da83bd4ff480f0b8a2fbeec0764e03ac7d7bf822f296'
+    version '1.11.0.0'
+    sha256 'f6017f4c7f662f2c166b3d6f50fc90b721b8f4efe97b2d254962dd0b4667cf45'
   else
     os_ver = '10.14'
-    version '1.10.0.0'
-    sha256 'f67b6eaf7ca0571fca2018c90621ab905c07aa582b59322b657ab4155f2ce940'
+    version '1.11.0.0'
+    sha256 'd6d8ab3babb244cfaabc8b52e6541532e71d38a50d6bfb98f755cef5e5e65612'
   end
 
   depends_on macos: '>= 10.11'
-  url "https://downloads.puppet.com/mac/puppet5/#{os_ver}/x86_64/pdk-#{version}-1.osx#{os_ver}.dmg"
+  url "https://downloads.puppet.com/mac/puppet/#{os_ver}/x86_64/pdk-#{version}-1.osx#{os_ver}.dmg"
   pkg "pdk-#{version}-1-installer.pkg"
 
   name 'Puppet Development Kit'
