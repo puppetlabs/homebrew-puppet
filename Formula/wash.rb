@@ -9,7 +9,7 @@ class Wash < Formula
   depends_on "go" => [:build, "1.12.0"]
 
   def install
-    system "go build -ldflags='-w -s -X github.com/puppetlabs/wash/cmd.version=#{version}'"
+    system "go build -ldflags='-w -s -X github.com/puppetlabs/wash/cmd/version.BuildVersion=#{version}'"
     bin.install "wash" => "wash"
   end
 
