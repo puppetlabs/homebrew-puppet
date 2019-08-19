@@ -2,15 +2,18 @@ cask 'puppet-agent' do
   case MacOS.version
   when '10.12'
     os_ver = '10.12'
-    version '6.4.0'
+    version '6.8.0'
+    #TODO modify checksum sha 256 after the new packages are released
     sha256 'e21e90e8cba67021bd2323e2208555eb5db8260419c70996d7010653c3c43080'
   when '10.13'
     os_ver = '10.13'
-    version '6.4.0'
+    version '6.8.0'
+    #TODO modify checksum sha 256 after the new packages are released
     sha256 'c05e07c77174a18ea330434bb2c74dbbf51387b9e7cc09b8c97e63681323999b'
   else
     os_ver = '10.14'
-    version '6.4.0'
+    version '6.8.0'
+    #TODO modify checksum sha 256 after the new packages are released
     sha256 '604fd125f501ad3dd1472e56fa5a76b4f490484f8be484dd779fe40349f38e77'
   end
 
