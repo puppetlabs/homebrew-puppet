@@ -19,6 +19,15 @@ PKG_TO_COLLECTIONS = {
   'pdk' => 'puppet'
 }
 
+VERSION_TO_CODENAME = {
+  '10.10' => :yosemite,
+  '10.11' => :el_capitan,
+  '10.12' => :sierra,
+  '10.13' => :high_sierra,
+  '10.14' => :mojave,
+  '10.15' => :catalina,
+}
+
 def operating_systems(collection)
   collection == 'puppet5' ? %w[10.10 10.11 10.12 10.13 10.14] : %w[10.11 10.12 10.13 10.14]
 end
