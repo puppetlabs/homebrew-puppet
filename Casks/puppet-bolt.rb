@@ -18,7 +18,7 @@ cask 'puppet-bolt' do
     sha256 '9f068f26389ca59f0b1ada7cf76e9688a7b9aec70a9ab78f3ce5428d1aa4f18f'
   end
 
-  depends_on macos: '>= 10.11'
+  depends_on macos: '>= :el_capitan'
   url "https://downloads.puppet.com/mac/puppet/#{os_ver}/x86_64/puppet-bolt-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-bolt-#{version}-1-installer.pkg"
 
