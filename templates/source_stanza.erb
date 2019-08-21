@@ -11,6 +11,6 @@
     sha256 '<%= package_triples.last[2] %>'
   end
 
-  depends_on macos: '>= <%= package_triples[0][0] %>'
+  depends_on macos: '>= :<%= VERSION_TO_CODENAME[package_triples[0][0]] %>'
   url "<%= url %>"
   pkg "<%= pkg %>-#{version}-1-installer.pkg"
