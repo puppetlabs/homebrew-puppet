@@ -2,3 +2,4 @@
 */wash.*        @puppetlabs/wash
 */puppet-bolt.* @puppetlabs/bolt
 */pdk.*         @puppetlabs/pdk
+*/puppet-agent* @puppetlabs/night-s-watch
