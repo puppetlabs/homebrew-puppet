@@ -7,6 +7,8 @@ class Wash < Formula
   head "https://github.com/puppetlabs/wash.git"
 
   depends_on "go" => [:build, "1.12.0"]
+  option "with-coreutils", "Enables relative paths in the shell prompt using realpath"
+  depends_on "coreutils" => :recommended
 
   def install
     system "go build -ldflags='-w -s -X github.com/puppetlabs/wash/cmd/version.BuildVersion=#{version}'"
