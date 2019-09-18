@@ -2,16 +2,16 @@ cask 'puppet-agent' do
   case MacOS.version
   when '10.12'
     os_ver = '10.12'
-    version '6.8.0'
-    sha256 '8048a498da71086604c3b8de14faf076a00364708fd9a85954acb26054d6148d'
+    version '6.9.0'
+    sha256 '517a53dad95e0581face8fc8c6b8bb1d0941f624a6de05aae43ea8af2dcb7827'
   when '10.13'
     os_ver = '10.13'
-    version '6.8.0'
-    sha256 '90913ed0fadcff05b036fb6b31674ef2d2344fcf6f72b27659643d85eb8e3c64'
+    version '6.9.0'
+    sha256 '8a4fdd6a171847ba56c7e9d5eae77e64f8fb7f26e311df3fdbd900075fe46fa4'
   else
     os_ver = '10.14'
-    version '6.8.0'
-    sha256 '8ff0f93298210520162874caf7c1101cbb65b685e1605ce032208bb50f381dcc'
+    version '6.9.0'
+    sha256 '24f33b80d1aa3fbe6827ba4035e7a3379c5db8902f6ab779cea91ff86fd33aa6'
   end
 
   depends_on macos: '>= :sierra'
