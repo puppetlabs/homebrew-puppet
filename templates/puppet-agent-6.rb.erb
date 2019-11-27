@@ -4,8 +4,8 @@ cask 'puppet-agent-6' do
   homepage "https://puppet.com/docs/puppet/#{version.major_minor}/about_agent.html"
 
   uninstall launchctl: [
-                         'puppet',
-                         'pxp-agent',
+                         'com.puppetlabs.puppet',
+                         'com.puppetlabs.pxp-agent',
                        ],
             pkgutil:   'com.puppetlabs.puppet-agent'
 
