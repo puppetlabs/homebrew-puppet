@@ -2,20 +2,20 @@ cask 'pdk' do
   case MacOS.version
   when '10.11'
     os_ver = '10.11'
-    version '1.14.1.0'
-    sha256 'b1739dd67c6c6eed58a4d19eef88187f5cfa53fcccee00688a433598db61d3ea'
+    version '1.15.0.0'
+    sha256 'df270ba66de5b37c64ee970aec06cfd08f105984b978c965c99e3634db053311'
   when '10.12'
     os_ver = '10.12'
-    version '1.14.1.0'
-    sha256 '5997448068371db5ab94decbb97c0aa7f1ca7ac20d7e1ac88a6ebdad27615c60'
+    version '1.15.0.0'
+    sha256 'de717de5f74a6e6127b5d8c349fff15cf4b8e680ad697e68a58173af227fdcd6'
   when '10.13'
     os_ver = '10.13'
-    version '1.14.1.0'
-    sha256 'db5c7d0e04c4e12b299212fcbded046d9615f70e30089852b177d544723fd55a'
+    version '1.15.0.0'
+    sha256 'ac60b2fe2588944e8108538830d3a88cd7507db188ac14aeb2051a8cb6bf11b9'
   else
     os_ver = '10.14'
-    version '1.14.1.0'
-    sha256 '67d5d6da9ac2969c2f111d34e6f6fe4a69b265970eecb479958d212f8a74b6c2'
+    version '1.15.0.0'
+    sha256 '2b41461a0838367c8da30588055d2464ac3001dd606349dd2af4b32f78db1023'
   end
 
   depends_on macos: '>= :el_capitan'
