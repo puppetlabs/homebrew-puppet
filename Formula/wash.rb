@@ -7,6 +7,9 @@ class Wash < Formula
   head "https://github.com/puppetlabs/wash.git"
 
   depends_on "go" => [:build, "1.12.0"]
+
+  option "with-fuse", "Enables Wash filesystem functionality"
+  depends_on :osxfuse => :recommended
   option "with-coreutils", "Enables relative paths in the shell prompt using realpath"
   depends_on "coreutils" => :recommended
 
@@ -17,9 +20,5 @@ class Wash < Formula
 
   test do
     system "#{bin}/wash", "help"
-  end
-
-  def caveats
-    "Wash depends on libfuse. You can install it with `brew cask install osxfuse`."
   end
 end
