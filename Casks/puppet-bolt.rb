@@ -2,20 +2,20 @@ cask 'puppet-bolt' do
   case MacOS.version
   when '10.11'
     os_ver = '10.11'
-    version '1.44.0'
-    sha256 '3637fae0bd7beb86db6fafffb93950029e5ac3b73b492a060b2df70ade2e9f24'
+    version '1.45.0'
+    sha256 'f4b8dd200b3c4bd23283a12aa7947e96237feb4e6136c6c35368f1616dccd842'
   when '10.12'
     os_ver = '10.12'
-    version '1.44.0'
-    sha256 '9b395ec7175da49975d49a11d84a10d4319d90928aa0ec8692e127e547bea95f'
+    version '1.45.0'
+    sha256 'd5c8af5261d8dbb796a0349faad281bb9f29c190bfd6f767314778825954a670'
   when '10.13'
     os_ver = '10.13'
-    version '1.44.0'
-    sha256 'c48045c29d24f6e92bec44403c103bcd6d4225709e169dac250493ef12e2c0c1'
+    version '1.45.0'
+    sha256 '076c4d3fc1029f210b86507fb8d20564bf0fdba41a1f4998304fa83060949f32'
   else
     os_ver = '10.14'
-    version '1.44.0'
-    sha256 '3e34c23d4290b1e2298a3c1963d9dc7dbcfc048ac15753acd3dd8ef3d0927ad9'
+    version '1.45.0'
+    sha256 '0223f754902cf7381c76b6eb2628ad8472133f520e955e121aca2eb9a45ee6a5'
   end
 
   depends_on macos: '>= :el_capitan'
