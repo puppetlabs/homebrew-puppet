@@ -5,6 +5,9 @@ osx_image:
   - xcode10.2
   - xcode10
   - xcode9.2
+branches:
+  only:
+    - master
 env:
   global:
     - HOMEBREW_LOGS=~/homebrew-logs
