@@ -14,6 +14,9 @@ env:
     - HOMEBREW_TEMP=~/homebrew-temp
     - HOMEBREW_NO_AUTO_UPDATE=1
   matrix:
+    - CASK=pe-client-tools
+    - CASK=pe-client-tools-2019.3
+    - CASK=pe-client-tools-2018.1
     - CASK=pdk
     - CASK=puppet-agent
     - CASK=puppet-agent-5
@@ -23,6 +26,12 @@ script:
   - brew cask install Casks/$CASK.rb --force
 matrix:
   include:
+    - osx_image: xcode9.2
+      env: CASK=pe-client-tools
+    - osx_image: xcode10.1
+      env: CASK=pe-client-tools
+    - osx_image: xcode11.1
+      env: CASK=pe-client-tools
     - osx_image: xcode8
       env: CASK=pdk
     - osx_image: xcode6.4

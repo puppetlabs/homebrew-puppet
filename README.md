@@ -1,16 +1,26 @@
 # Homebrew Puppet
 
-A tap for [Puppet](https://puppet.com) OSX packages
+A tap for [Puppet](https://puppet.com) macOS packages
+
+- [How do I install these packages?](#how-do-i-install-these-packages)
+  - [Bolt](#bolt)
+  - [PE Client Tools](#pe-client-tools)
+  - [PDK](#pdk)
+  - [Puppet Agent](#puppet-agent)
+  - [Wash](#wash)
+- [Migrating from pre-tap installations](#migrating-from-pre-tap-installations)
+- [Updating versions](#updating-versions)
+  - [Updating pe-client-tools](#updating-pe-client-tools)
 
 ## How do I install these packages?
 
-```
+```bash
 brew cask install puppetlabs/puppet/<package>
 ```
 
 or
 
-```
+```bash
 brew install puppetlabs/puppet/<package>
 ```
 
@@ -18,21 +28,37 @@ brew install puppetlabs/puppet/<package>
 
 To install [Bolt](https://github.com/puppetlabs/bolt) with brew run
 
-```
+```bash
 brew cask install puppetlabs/puppet/puppet-bolt
 ```
 
 This will install bolt to `/opt/puppetlabs/bin/bolt`, so to use bolt add `/opt/puppetlabs/bin` to your path
 
-```
+```bash
 export PATH=$PATH:/opt/puppetlabs/bin
 ```
+
+### PE Client Tools
+
+To install the latest version of [PE Client Tools](https://puppet.com/docs/pe/latest/installing_pe_client_tools.html) run
+
+```bash
+brew cask isntall puppetlabs/puppet/pe-client-tools
+```
+
+To install the client tools for PE 2018.1, run
+
+```bash
+brew cask isntall puppetlabs/puppet/pe-client-tools-2018.1
+```
+
+This will install the stand-lone commands from pe-client-tools to `/opt/puppetlabs/bin` so you'll need to have `/opt/puppetlabs/bin` in your path. All the commands are also available via a puppet face if you have the puppet-agent installed too.
 
 ### PDK
 
 To install [PDK](https://github.com/puppetlabs/pdk) with brew:
 
-```
+```bash
 brew cask install puppetlabs/puppet/pdk
 ```
 
@@ -47,7 +73,7 @@ to learn more.
 
 To install the very latest [Puppet Agent](https://github.com/puppetlabs/puppet-agent) with brew:
 
-```
+```bash
 brew cask install puppetlabs/puppet/puppet-agent
 ```
 
@@ -59,7 +85,7 @@ Additionally we maintain versioned casks for each collection
 
 To install [Wash](https://github.com/puppetlabs/wash) with brew:
 
-```
+```bash
 brew install puppetlabs/puppet/wash
 ```
 
@@ -71,14 +97,14 @@ If you previously installed the PDK or Bolt from homebrew before this tap existe
 
 To remedy that, simply add the `puppetlabs/puppet` tap after updating homebrew:
 
-```
+```bash
 brew update
 brew tap puppetlabs/puppet
 ```
 
 After tapping, you can refer to the packages by their short name when interacting with them. For example:
 
-```
+```bash
 brew cask upgrade pdk
 ```
 
@@ -86,16 +112,33 @@ brew cask upgrade pdk
 
 When new versions of packages are shipped, you can use a Rake task to update the Cask to the latest version and SHAs
 
-```
+```bash
 rake 'brew:cask[puppet-bolt]'
 ```
 
 To update the versioned casks - for example `puppet-agent-5` - include the collection as a 2nd argument
-```
+
+```bash
 rake 'brew:cask[puppet-agent,5]'
 ```
 
 You can test updated Cask files with
-```
+
+```bash
 brew cask install Casks/puppet-bolt.rb --force
+```
+
+### Updating pe-client-tools
+
+Right now, pe-client-tools live in a location that can't be browsed so we needed a different rake task for it. There is a variable for the latest / default version of PE and a hash that defines the pe-client-tools version associated with each PE version.
+
+To pull down a new version of the client tools you will first want to update the variables in the Rakefile and then run one of these commands:
+
+```bash
+# utilize the LATEST_PE variable
+rake brew:pe_client_tools
+
+# Update the individual PE collections
+rake 'brew:pe_client_tools[2019.3]'
+rake 'brew:pe_client_tools[2018.1]'
 ```
