@@ -31,5 +31,12 @@ cask 'pdk' do
     #{pdk_bins} may not be included in your current $PATH but should be included in new shells.
   )
 
+  # Temporary fix for permissions problems in 1.16.0.1. They were fixed in
+  # 1.16.0.2 but the dmg installer doesn't seem to update the permissions
+  # during upgrade if that is the only change to the file.
+  postflight do
+    set_permissions '/opt/puppetlabs/pdk', 'a+rX'
+  end
+
   uninstall pkgutil: 'com.puppetlabs.pdk'
 end
