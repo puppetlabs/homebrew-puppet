@@ -47,7 +47,7 @@ def operating_systems(collection)
   when 'puppet5'
     %w[10.10 10.11 10.12 10.13 10.14]
   else
-    %w[10.11 10.12 10.13 10.14]
+    %w[10.11 10.12 10.13 10.14 10.15]
   end
 end
 
