@@ -43,13 +43,13 @@ export PATH=$PATH:/opt/puppetlabs/bin
 To install the latest version of [PE Client Tools](https://puppet.com/docs/pe/latest/installing_pe_client_tools.html) run
 
 ```bash
-brew cask isntall puppetlabs/puppet/pe-client-tools
+brew cask install puppetlabs/puppet/pe-client-tools
 ```
 
 To install the client tools for PE 2018.1, run
 
 ```bash
-brew cask isntall puppetlabs/puppet/pe-client-tools-2018.1
+brew cask install puppetlabs/puppet/pe-client-tools-2018.1
 ```
 
 This will install the stand-lone commands from pe-client-tools to `/opt/puppetlabs/bin` so you'll need to have `/opt/puppetlabs/bin` in your path. All the commands are also available via a puppet face if you have the puppet-agent installed too.
