@@ -8,6 +8,7 @@ A tap for [Puppet](https://puppet.com) macOS packages
   - [PDK](#pdk)
   - [Puppet Agent](#puppet-agent)
   - [Wash](#wash)
+  - [Relay](#relay)
 - [Migrating from pre-tap installations](#migrating-from-pre-tap-installations)
 - [Updating versions](#updating-versions)
   - [Updating pe-client-tools](#updating-pe-client-tools)
@@ -90,6 +91,17 @@ brew install puppetlabs/puppet/wash
 ```
 
 This will build Wash (with Go) and install it to `/usr/local/bin/wash`.
+
+### Relay
+
+To install the CLI tool to interact with [Relay](https://relay.sh):
+
+```bash
+brew install puppetlabs/puppet/relay
+```
+
+This will install the relay CLI from the binary builds produced at 
+[@puppetlabs/relay](https://github.com/puppetlabs/relay) - no local build tools are required.
 
 ## Migrating from pre-tap installations
 
