@@ -10,12 +10,12 @@ cask 'puppet-agent' do
     sha256 '2e4f6a316b633200fd2a9c0a0b57e3dea785c9f9c19e07ad4e295cdd00914b10'
   when '10.14'
     os_ver = '10.14'
-    version '6.14.0'
-    sha256 'b1322088357ac4996ccfc204cd3b24a358b454aaca80e994255c8e1f1250651b'
+    version '6.15.0'
+    sha256 '73497da90dccec2c6f900fc0222e7d76d5c62332126a432efbc5c8a8d93b23d7'
   else
     os_ver = '10.15'
-    version '6.14.0'
-    sha256 '11a2e8f7f284d6b90d813d517ed3ceba8db219c99bdf483071a09f1fce5505ac'
+    version '6.15.0'
+    sha256 '5dd4a7f6130558052258921f28cbec01fd503f0cce8fdc530a18bc4cec1a4861'
   end
 
   depends_on macos: '>= :sierra'
