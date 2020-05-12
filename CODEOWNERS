@@ -4,3 +4,4 @@
 */pdk.*            @puppetlabs/pdk
 */puppet-agent*    @puppetlabs/night-s-watch
 */pe-client-tools* @puppetlabs/skeletor
+*/relay.*          @puppetlabs/nebula-community
