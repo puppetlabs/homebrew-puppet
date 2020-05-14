@@ -42,6 +42,7 @@ matrix:
       env: CASK=puppet-bolt
     - osx_image: xcode10.2
       env: FORMULA=wash
+      script: brew install Formula/$FORMULA.rb
     - osx_image: xcode10.2
       env: FORMULA=relay
       script: brew install Formula/$FORMULA.rb
