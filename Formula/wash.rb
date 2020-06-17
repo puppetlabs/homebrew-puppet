@@ -1,8 +1,8 @@
 class Wash < Formula
-  version = "0.23.0"
+  version = "0.23.1"
   homepage "https://puppetlabs.github.io/wash"
   url "https://github.com/puppetlabs/wash/archive/#{version}.tar.gz"
-  sha256 "3b7462c7b4aa3163f9b79f2892495ec66c52ec29d6c5c91aa25d3d31c0e1e535"
+  sha256 "09013321002abe239e492482e0104bbbfd6756e290382d1807d6e8b070412570"
 
   head "https://github.com/puppetlabs/wash.git"
 
