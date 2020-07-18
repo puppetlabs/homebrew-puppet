@@ -14,12 +14,12 @@ cask 'pdk' do
     sha256 'e260500af2cbe07d31b880bffe5c7bcc1b3823cc3472a75829e8a582b197931d'
   when '10.14'
     os_ver = '10.14'
-    version '1.18.0.0'
-    sha256 '77bb30ff983bb7a2d4e7fd1044e0cac9dd04c13a99e8636e64134e1dd7ae7401'
+    version '1.18.1.0'
+    sha256 'ac51e637caaed15dbeb616e52236b98214a2aeb21a3bca0fda5ed178d92e0548'
   else
     os_ver = '10.15'
-    version '1.18.0.0'
-    sha256 'e908bebef6baebe871e437bb9f5645dc7f543d38f9d852630229cc3f28088f9a'
+    version '1.18.1.0'
+    sha256 '5ee08d46b072b418f3256d0f47d2979255b69e1b5d3e5ba207be390b75eb6482'
   end
 
   depends_on macos: '>= :el_capitan'
@@ -34,13 +34,6 @@ cask 'pdk' do
     PDK binaries are installed in #{pdk_bins}, which is sourced by an /etc/paths.d entry.
     #{pdk_bins} may not be included in your current $PATH but should be included in new shells.
   )
-
-  # Temporary fix for permissions problems in 1.16.0.1. They were fixed in
-  # 1.16.0.2 but the dmg installer doesn't seem to update the permissions
-  # during upgrade if that is the only change to the file.
-  postflight do
-    set_permissions '/opt/puppetlabs/pdk', 'a+rX'
-  end
 
   uninstall pkgutil: 'com.puppetlabs.pdk'
 end
