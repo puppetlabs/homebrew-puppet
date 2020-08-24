@@ -14,12 +14,12 @@ cask 'puppet-bolt' do
     sha256 'ec644414592e24f685e41f696e9830958b5c2223b7d489038529520faf3d3352'
   when '10.14'
     os_ver = '10.14'
-    version '2.24.0'
-    sha256 'db611d78357991fb6d18803fd162d36f0bc80ee3b5d7fa09ed3248d65bcc7985'
+    version '2.24.1'
+    sha256 'ee21fd4614fb740ff305f17c97ff3c040ede082b3692287ed7684f4b03269d91'
   else
     os_ver = '10.15'
-    version '2.24.0'
-    sha256 'ad851701412916adcb7f951343cb186da8ba37cca9c2b12673eb45ad72bb0ddf'
+    version '2.24.1'
+    sha256 '8150d783421fd8f6a3fab6de579e902d5d7dd77b54a8925e9a1c4d91a131e33a'
   end
 
   depends_on macos: '>= :el_capitan'
