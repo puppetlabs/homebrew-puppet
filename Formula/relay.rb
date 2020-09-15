@@ -1,9 +1,9 @@
 class Relay < Formula
-  version "v4.1.1"
+  version "v4.2.0"
   homepage "https://relay.sh/"
   url "https://github.com/puppetlabs/relay/releases/download/#{version}/relay-#{version}-darwin-amd64", 
     :using => :nounzip
-  sha256 "6abdf72663915fab350155cd00a385c9532bfb95962af33a2cc853a622a332b4"
+  sha256 "cc2a204147b7c37602886341d5b1d853a83604c2a87fd0e6ea7c3136b7a6a61c"
 
   def install
     bin.install "relay-#{version}-darwin-amd64" => "relay"
