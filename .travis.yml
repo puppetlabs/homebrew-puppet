@@ -21,6 +21,7 @@ env:
     - CASK=puppet-agent
     - CASK=puppet-agent-5
     - CASK=puppet-agent-6
+    - CASK=puppet-agent-7
     - CASK=puppet-bolt
 script:
   - brew cask install Casks/$CASK.rb --force

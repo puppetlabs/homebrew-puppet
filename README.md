@@ -81,6 +81,7 @@ brew cask install puppetlabs/puppet/puppet-agent
 Additionally we maintain versioned casks for each collection
 - `puppetlabs/puppet/puppet-agent-5`
 - `puppetlabs/puppet/puppet-agent-6`
+- `puppetlabs/puppet/puppet-agent-7`
 
 ### Wash
 
