@@ -1,10 +1,11 @@
 os: osx
-# These represent OS X 10.12 - 10.14.
+# These represent OS X 10.12 - 10.15.
 # Extra matrix entries add OS X 10.10 - 10.11.
 osx_image:
-  - xcode10.2
-  - xcode10
-  - xcode9.2
+  - xcode12.2 # 10.15
+  - xcode10.2 # 10.14
+  - xcode10 # 10.13
+  - xcode9.2 # 10.12
 branches:
   only:
     - master
@@ -47,3 +48,8 @@ matrix:
     - osx_image: xcode10.2
       env: FORMULA=relay
       script: brew install Formula/$FORMULA.rb
+  exclude:
+    - osx_image: xcode9.2
+      env: CASK=puppet-agent-7
+    - osx_image: xcode10
+      env: CASK=puppet-agent-7
