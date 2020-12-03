@@ -18,7 +18,7 @@ def fetch(uri, limit = 10)
 end
 
 PKG_TO_COLLECTIONS = {
-  'puppet-bolt' => 'puppet',
+  'puppet-bolt' => 'puppet-tools',
   'pdk' => 'puppet'
 }
 

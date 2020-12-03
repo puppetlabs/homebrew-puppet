@@ -3,27 +3,27 @@ cask 'puppet-bolt' do
   when '10.11'
     os_ver = '10.11'
     version '2.0.0'
-    sha256 'a5956c7d075a6219f04cda8890732bb8e31b4e10ad0096e18046531b43cfdd7d'
+    sha256 'a0fcb0a8d100ff9294ef7d6d9c00c569c97fa3c25bc857d08b4c6b53aaf2e50d'
   when '10.12'
     os_ver = '10.12'
     version '2.0.0'
-    sha256 '9d14f5106bb1c882971658ca00537fd1f1e176685f31588637eab8b95feba0d7'
+    sha256 '3e36904194a51c01c1b406837a998107938ef5d58081c308c0ac2e377624e64f'
   when '10.13'
     os_ver = '10.13'
     version '2.0.0'
-    sha256 'ec644414592e24f685e41f696e9830958b5c2223b7d489038529520faf3d3352'
+    sha256 'f7cdfd892b5ebdd795626e3a5c21cc769b6f946d5f686a0e98f389100eb674ac'
   when '10.14'
     os_ver = '10.14'
     version '2.36.0'
-    sha256 '8ffcf76664a8840e2526e9c75af4b1c22ba5d72d66c814219da2a4ab0b83634b'
+    sha256 '670359530f1825bc0bfcf328d21a1f9ad4ab605b234df846b7f6a3d7ee47fa57'
   else
     os_ver = '10.15'
     version '2.36.0'
-    sha256 '35267f348466e841085e95d27918197a82d5f8b4ddd7d247e6ca6c188823a127'
+    sha256 '14111da825fe29542e6a401982e388f920756be8dacab1fa5c8ed4498104a9d8'
   end
 
   depends_on macos: '>= :el_capitan'
-  url "https://downloads.puppet.com/mac/puppet/#{os_ver}/x86_64/puppet-bolt-#{version}-1.osx#{os_ver}.dmg"
+  url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/x86_64/puppet-bolt-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-bolt-#{version}-1-installer.pkg"
 
   name 'Puppet Bolt'
