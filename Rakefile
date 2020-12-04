@@ -19,7 +19,7 @@ end
 
 PKG_TO_COLLECTIONS = {
   'puppet-bolt' => 'puppet-tools',
-  'pdk' => 'puppet'
+  'pdk' => 'puppet-tools'
 }
 
 VERSION_TO_CODENAME = {
