@@ -1,24 +1,16 @@
 cask 'puppet-agent' do
   case MacOS.version
-  when '10.12'
-    os_ver = '10.12'
-    version '6.13.0'
-    sha256 '3577c3656b40014a97a409423db6b70dca80accab550b7966ecc0dd5c4fa9007'
-  when '10.13'
-    os_ver = '10.13'
-    version '6.13.0'
-    sha256 '2e4f6a316b633200fd2a9c0a0b57e3dea785c9f9c19e07ad4e295cdd00914b10'
   when '10.14'
     os_ver = '10.14'
-    version '6.19.1'
-    sha256 '7250f4f1be20346cfe7bd07c6dd4ea2c3dfae087e4567d80ae85a41898eb2bce'
+    version '7.1.0'
+    sha256 'f74658807704c29edf940be65ba02b85c8e6320fb2399d7320f9f4a73705eb49'
   else
     os_ver = '10.15'
-    version '6.19.1'
-    sha256 'd53ed2ae58699fd03ad8a7a43ca09193b6e1d2b43ea601f9f202f37d7f3a608a'
+    version '7.1.0'
+    sha256 'f0635cc7cb1db4f42b4f1a0ec6279c1edbab3c8e7fb85084bed76947f50366eb'
   end
 
-  depends_on macos: '>= :sierra'
+  depends_on macos: '>= :mojave'
   url "https://downloads.puppet.com/mac/puppet/#{os_ver}/x86_64/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
