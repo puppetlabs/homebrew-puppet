@@ -20,6 +20,6 @@ class Wash < Formula
   end
 
   def caveats
-    "Wash depends on libfuse. You can install it with `brew cask install osxfuse`."
+    "Wash depends on libfuse. You can install it with `brew install osxfuse`."
   end
 end

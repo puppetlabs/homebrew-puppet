@@ -16,7 +16,7 @@ A tap for [Puppet](https://puppet.com) macOS packages
 ## How do I install these packages?
 
 ```bash
-brew cask install puppetlabs/puppet/<package>
+brew install --cask puppetlabs/puppet/<package>
 ```
 
 or
@@ -30,7 +30,7 @@ brew install puppetlabs/puppet/<package>
 To install [Bolt](https://github.com/puppetlabs/bolt) with brew run
 
 ```bash
-brew cask install puppetlabs/puppet/puppet-bolt
+brew install puppetlabs/puppet/puppet-bolt
 ```
 
 This will install bolt to `/opt/puppetlabs/bin/bolt`, so to use bolt add `/opt/puppetlabs/bin` to your path
@@ -44,13 +44,13 @@ export PATH=$PATH:/opt/puppetlabs/bin
 To install the latest version of [PE Client Tools](https://puppet.com/docs/pe/latest/installing_pe_client_tools.html) run
 
 ```bash
-brew cask install puppetlabs/puppet/pe-client-tools
+brew install puppetlabs/puppet/pe-client-tools
 ```
 
 To install the client tools for PE 2018.1, run
 
 ```bash
-brew cask install puppetlabs/puppet/pe-client-tools-2018.1
+brew install puppetlabs/puppet/pe-client-tools-2018.1
 ```
 
 This will install the stand-lone commands from pe-client-tools to `/opt/puppetlabs/bin` so you'll need to have `/opt/puppetlabs/bin` in your path. All the commands are also available via a puppet face if you have the puppet-agent installed too.
@@ -60,7 +60,7 @@ This will install the stand-lone commands from pe-client-tools to `/opt/puppetla
 To install [PDK](https://github.com/puppetlabs/pdk) with brew:
 
 ```bash
-brew cask install puppetlabs/puppet/pdk
+brew install puppetlabs/puppet/pdk
 ```
 
 This will install PDK into `/opt/puppetlabs/pdk` and add an entry into `/etc/paths.d` to add PDK to your
@@ -75,7 +75,7 @@ to learn more.
 To install the very latest [Puppet Agent](https://github.com/puppetlabs/puppet-agent) with brew:
 
 ```bash
-brew cask install puppetlabs/puppet/puppet-agent
+brew install puppetlabs/puppet/puppet-agent
 ```
 
 Additionally we maintain versioned casks for each collection
@@ -118,7 +118,7 @@ brew tap puppetlabs/puppet
 After tapping, you can refer to the packages by their short name when interacting with them. For example:
 
 ```bash
-brew cask upgrade pdk
+brew upgrade pdk
 ```
 
 ## Updating versions
@@ -138,7 +138,7 @@ rake 'brew:cask[puppet-agent,5]'
 You can test updated Cask files with
 
 ```bash
-brew cask install Casks/puppet-bolt.rb --force
+brew install Casks/puppet-bolt.rb --force
 ```
 
 ### Updating pe-client-tools
