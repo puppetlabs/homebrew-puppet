@@ -152,6 +152,9 @@ To pull down a new version of the client tools you will first want to update the
 rake brew:pe_client_tools
 
 # Update the individual PE collections
+rake 'brew:pe_client_tools[2019.8]'
 rake 'brew:pe_client_tools[2019.3]'
 rake 'brew:pe_client_tools[2018.1]'
 ```
+
+Internally, we can look for the available versions by poking around on http://builds.puppetlabs.lan/pe-client-tools/

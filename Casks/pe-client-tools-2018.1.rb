@@ -2,12 +2,12 @@ cask 'pe-client-tools-2018.1' do
   case MacOS.version
   when '10.12'
     os_ver = '10.12'
-    version '18.1.3'
-    sha256 '63c114696d1fb7642b493fb7111d922582cfb37e497cb0258e6d836a19af644a'
+    version '18.1.8'
+    sha256 'dab4d62b803bc322ce07c66820f443e1f85a967f77b752cf55262a500c1dce1a'
   else
     os_ver = '10.13'
-    version '18.1.3'
-    sha256 '9413d45d322bb96fbd3073055ce01022907a37659a0005242f64f2da2d34e08b'
+    version '18.1.8'
+    sha256 '327891491b80567b2af035de53422f81e010e727373f055f13626eb10c9c4553'
   end
 
   depends_on macos: '>= :sierra'
