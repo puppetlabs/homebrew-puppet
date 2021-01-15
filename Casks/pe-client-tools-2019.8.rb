@@ -1,4 +1,4 @@
-cask 'pe-client-tools' do
+cask 'pe-client-tools-2019.8' do
   case MacOS.version
   when '10.13'
     os_ver = '10.13'
@@ -19,7 +19,7 @@ cask 'pe-client-tools' do
   pkg "pe-client-tools-#{version}-1-installer.pkg"
 
   name 'PE Client Tools'
-  homepage "https://puppet.com/docs/pe/latest/installing_pe_client_tools.html"
+  homepage "https://puppet.com/docs/pe/2019.8/installing_pe_client_tools.html"
 
   uninstall pkgutil: 'com.puppetlabs.pe-client-tools'
 end
