@@ -53,3 +53,7 @@ matrix:
       env: CASK=puppet-agent-7
     - osx_image: xcode10
       env: CASK=puppet-agent-7
+    - osx_image: xcode9.2
+      env: CASK=puppet-agent
+    - osx_image: xcode10
+      env: CASK=puppet-agent
