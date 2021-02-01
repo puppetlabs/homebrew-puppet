@@ -39,6 +39,14 @@ This will install bolt to `/opt/puppetlabs/bin/bolt`, so to use bolt add `/opt/p
 export PATH=$PATH:/opt/puppetlabs/bin
 ```
 
+#### Installing Bolt 2.x
+
+To install Bolt 2.x, run
+
+```bash
+brew install puppetlabs/puppet/puppet-bolt@2
+```
+
 ### PE Client Tools
 
 To install the latest version of [PE Client Tools](https://puppet.com/docs/pe/latest/installing_pe_client_tools.html) run
