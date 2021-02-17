@@ -32,22 +32,19 @@ VERSION_TO_CODENAME = {
   '11'    => :big_sur,
 }
 
-LATEST_PE = '2019.8'
+LATEST_PE = '2021.0'
 
 CLIENT_TOOLS = {
-  '2019.8' => '19.8.4',
-  '2019.3' => '19.3.0',
-  '2018.1' => '18.1.8',
+  '2021.0' => '21.0.0',
+  '2019.8' => '19.8.5',
 }
 
 def operating_systems(collection)
   case collection
   when 'pct2019.8'
-    %w[10.13 10.14 10.15]
-  when 'pct2019.3'
-    %w[10.12 10.13]
-  when 'pct2018.1'
-    %w[10.12 10.13]
+    %w[10.14 10.15]
+  when 'pct2021.0'
+    %w[10.14 10.15]
   when 'puppet5'
     %w[10.10 10.11 10.12 10.13 10.14 10.15]
   when 'puppet7'
