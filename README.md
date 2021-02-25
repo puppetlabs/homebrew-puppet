@@ -68,7 +68,7 @@ This will install the stand-lone commands from pe-client-tools to `/opt/puppetla
 To install [PDK](https://github.com/puppetlabs/pdk) with brew:
 
 ```bash
-brew install puppetlabs/puppet/pdk
+brew install --cask puppetlabs/puppet/pdk
 ```
 
 This will install PDK into `/opt/puppetlabs/pdk` and add an entry into `/etc/paths.d` to add PDK to your
@@ -77,6 +77,15 @@ shell's PATH, however you may have to relaunch your terminal session before `pdk
 If you use ZShell (zsh), you will have to take additional steps before `pdk` can be found on your PATH, see
 the [PDK Troubleshooting](https://puppet.com/docs/pdk/1.x/pdk_troubleshooting.html#pdk-not-in-zshell-path-on-mac-os-x) docs
 to learn more.
+
+#### Installing PDK 1.x
+
+To install the latest PDK 1.x release, run
+
+```bash
+brew tap puppetlabs/puppet
+brew install pdk@1
+```
 
 ### Puppet Agent
 
