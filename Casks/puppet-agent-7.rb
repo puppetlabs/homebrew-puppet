@@ -2,12 +2,12 @@ cask 'puppet-agent-7' do
   case MacOS.version
   when '10.14'
     os_ver = '10.14'
-    version '7.4.1'
-    sha256 'fe871ff1548e8a9a1d8f4e462113217477a16b64e167179d452a406c02cfbaae'
+    version '7.5.0'
+    sha256 '7d3f7012149c8fdf40934b57fd0c57319600db831ce912f71f820f8ab564c20b'
   else
     os_ver = '10.15'
-    version '7.4.1'
-    sha256 '7ea75ff49dd9bf911fa1e41080166644860f0437c4299ae0194b2d3fb47d62a5'
+    version '7.5.0'
+    sha256 '8fa2856f7671099afd84a224a19090ab1ed88feeecfb7945c9818783c0f7921e'
   end
 
   depends_on macos: '>= :mojave'
