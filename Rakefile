@@ -4,7 +4,7 @@ require 'net/http'
 require 'tmpdir'
 
 def fetch(uri, limit = 10)
-  # puts "Fetching #{uri}" # Uncomment to debug what UR:'s are being fetched
+  # puts "Fetching #{uri}" # Uncomment to debug what URI's are being fetched
   raise 'too many HTTP redirects' if limit == 0
   response = Net::HTTP.get_response(URI(uri))
   case response
@@ -32,18 +32,18 @@ VERSION_TO_CODENAME = {
   '11'    => :big_sur,
 }
 
-LATEST_PE = '2021.0'
+LATEST_PE = '2021'
 
 CLIENT_TOOLS = {
-  '2021.0' => '21.0.0',
-  '2019.8' => '19.8.5',
+  '2021'   => '21.1.0',
+  '2019.8' => '19.8.6',
 }
 
 def operating_systems(collection)
   case collection
   when 'pct2019.8'
     %w[10.14 10.15]
-  when 'pct2021.0'
+  when 'pct2021'
     %w[10.14 10.15]
   when 'puppet5'
     %w[10.10 10.11 10.12 10.13 10.14 10.15]
@@ -101,7 +101,8 @@ namespace :brew do
     cask += '-' + args[:collection] if args[:collection]
     os_versions = operating_systems("pct#{collection}")
 
-    path_pre = "https://pm.puppet.com/pe-client-tools/#{collection}.0/"
+    pe_ver = CLIENT_TOOLS[collection].dup.prepend('20')
+    path_pre = "https://pm.puppet.com/pe-client-tools/#{pe_ver}/"
 
     latest_versions = os_versions.map do |os_ver|
       version

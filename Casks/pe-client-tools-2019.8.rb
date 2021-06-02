@@ -2,16 +2,16 @@ cask 'pe-client-tools-2019.8' do
   case MacOS.version
   when '10.14'
     os_ver = '10.14'
-    version '19.8.5'
-    sha256 'dd4aa20af10f27f2c5fe58a8ca512dead51eb7bfa00b186d301c67135b108692'
+    version '19.8.6'
+    sha256 'ce9c2db02c9fbb6b1cbf6ba9be4a2c569aa485a563350718a4435dc2a8185f3d'
   else
     os_ver = '10.15'
-    version '19.8.5'
-    sha256 '5be345ca3691f00b97c54f3cd5e523260257cb1e0589733dc1694b6241e5a7bb'
+    version '19.8.6'
+    sha256 '3cb72c8ac071b46b8b60a40a2018b44346205b386a1ee07e2006cd66ce98e3cb'
   end
 
   depends_on macos: '>= :mojave'
-  url "https://pm.puppet.com/pe-client-tools/2019.8.0/#{version}/repos/apple/#{os_ver}/PC1/x86_64/pe-client-tools-#{version}-1.osx#{os_ver}.dmg"
+  url "https://pm.puppet.com/pe-client-tools/2019.8.6/#{version}/repos/apple/#{os_ver}/PC1/x86_64/pe-client-tools-#{version}-1.osx#{os_ver}.dmg"
   pkg "pe-client-tools-#{version}-1-installer.pkg"
 
   name 'PE Client Tools'
