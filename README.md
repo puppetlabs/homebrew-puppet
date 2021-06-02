@@ -19,18 +19,12 @@ A tap for [Puppet](https://puppet.com) macOS packages
 brew install --cask puppetlabs/puppet/<package>
 ```
 
-or
-
-```bash
-brew install puppetlabs/puppet/<package>
-```
-
 ### Bolt
 
 To install [Bolt](https://github.com/puppetlabs/bolt) with brew run
 
 ```bash
-brew install puppetlabs/puppet/puppet-bolt
+brew install --cask puppetlabs/puppet/puppet-bolt
 ```
 
 This will install bolt to `/opt/puppetlabs/bin/bolt`, so to use bolt add `/opt/puppetlabs/bin` to your path
@@ -44,7 +38,8 @@ export PATH=$PATH:/opt/puppetlabs/bin
 To install Bolt 2.x, run
 
 ```bash
-brew install puppetlabs/puppet/puppet-bolt@2
+brew tap puppetlabs/puppet
+brew install puppet-bolt@2
 ```
 
 ### PE Client Tools
