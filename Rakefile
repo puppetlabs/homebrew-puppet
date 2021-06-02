@@ -29,6 +29,7 @@ VERSION_TO_CODENAME = {
   '10.13' => :high_sierra,
   '10.14' => :mojave,
   '10.15' => :catalina,
+  '11'    => :big_sur,
 }
 
 LATEST_PE = '2019.3'
@@ -47,9 +48,9 @@ def operating_systems(collection)
   when 'puppet5'
     %w[10.10 10.11 10.12 10.13 10.14 10.15]
   when 'puppet7'
-    %w[10.14 10.15]
+    %w[10.14 10.15 11]
   when 'puppet'
-    %w[10.14 10.15]
+    %w[10.14 10.15 11]
   else
     %w[10.11 10.12 10.13 10.14 10.15]
   end
