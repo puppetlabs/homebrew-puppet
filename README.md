@@ -50,13 +50,13 @@ To install the latest version of [PE Client Tools](https://puppet.com/docs/pe/la
 brew install puppetlabs/puppet/pe-client-tools
 ```
 
-To install the client tools for PE 2018.1, run
+To install the client tools for PE 2021, run
 
 ```bash
-brew install puppetlabs/puppet/pe-client-tools-2018.1
+brew install puppetlabs/puppet/pe-client-tools
 ```
 
-This will install the stand-lone commands from pe-client-tools to `/opt/puppetlabs/bin` so you'll need to have `/opt/puppetlabs/bin` in your path. All the commands are also available via a puppet face if you have the puppet-agent installed too.
+This will install the standalone commands from pe-client-tools to `/opt/puppetlabs/bin` so you'll need to have `/opt/puppetlabs/bin` in your path. All the commands are also available via a puppet face if you have the puppet-agent installed too.
 
 ### PDK
 
@@ -91,7 +91,6 @@ brew install puppetlabs/puppet/puppet-agent
 ```
 
 Additionally we maintain versioned casks for each collection
-- `puppetlabs/puppet/puppet-agent-5`
 - `puppetlabs/puppet/puppet-agent-6`
 - `puppetlabs/puppet/puppet-agent-7`
 
@@ -141,10 +140,10 @@ When new versions of packages are shipped, you can use a Rake task to update the
 rake 'brew:cask[puppet-bolt]'
 ```
 
-To update the versioned casks - for example `puppet-agent-5` - include the collection as a 2nd argument
+To update the versioned casks - for example `puppet-agent-6` - include the collection as a 2nd argument
 
 ```bash
-rake 'brew:cask[puppet-agent,5]'
+rake 'brew:cask[puppet-agent,6]'
 ```
 
 You can test updated Cask files with
@@ -164,6 +163,7 @@ To pull down a new version of the client tools you will first want to update the
 rake brew:pe_client_tools
 
 # Update the individual PE collections
-rake 'brew:pe_client_tools[2019.3]'
-rake 'brew:pe_client_tools[2018.1]'
+rake 'brew:pe_client_tools[2019.8]'
 ```
+
+Internally, we can look for the available versions by poking around on http://builds.puppetlabs.lan/pe-client-tools/
