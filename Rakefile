@@ -39,7 +39,11 @@ CLIENT_TOOLS = {
   '2019.8' => '19.8.6',
 }
 
-def operating_systems(collection)
+def operating_systems(collection, pkg = nil)
+  if %w[puppet-bolt].include?(pkg)
+    return %w[10.11 10.12 10.13 10.14 10.15 11]
+  end
+
   case collection
   when 'pct2019.8'
     %w[10.14 10.15]
@@ -63,7 +67,7 @@ namespace :brew do
     collection = PKG_TO_COLLECTIONS[pkg] || "puppet#{args[:collection]}"
     cask = pkg
     cask += '-' + args[:collection] if args[:collection]
-    os_versions = operating_systems(collection)
+    os_versions = operating_systems(collection, pkg)
 
     path_pre = "https://downloads.puppet.com/mac/#{collection}/"
 
