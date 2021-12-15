@@ -6,12 +6,12 @@ cask 'puppet-agent' do
     sha256 '539f2cbacf20bd2bed3bd7f173dc07aa99d9305a8cb91408e450e8b39ba0177d'
   when '10.15'
     os_ver = '10.15'
-    version '7.12.1'
-    sha256 '36e7d4a91f6cc8d71d3bfa295000e6feea846e21fffd620f2b3f324b3a1037e7'
+    version '7.13.1'
+    sha256 '36fb20d2be778300074914a95e4c00b1602858f0e76b204c1685f6404ed444e2'
   else
     os_ver = '11'
-    version '7.12.1'
-    sha256 'bdd9a969b6856cd96bc35f832c8b918805ade3e41e9175b488ffda86ebe56c3f'
+    version '7.13.1'
+    sha256 '9a4b907fcaf19c0cdc58ec8f1bd0665ed432061917c1dfd05292521dbe920756'
   end
 
   depends_on macos: '>= :mojave'
