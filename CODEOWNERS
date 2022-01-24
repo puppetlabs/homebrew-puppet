@@ -2,6 +2,6 @@
 */wash.*           @puppetlabs/wash
 */puppet-bolt.*    @puppetlabs/bolt
 */pdk.*            @puppetlabs/pdk
-*/puppet-agent*    @puppetlabs/night-s-watch
+*/puppet-agent*    @puppetlabs/phoenix
 */pe-client-tools* @puppetlabs/skeletor
 */relay.*          @puppetlabs/nebula-community
