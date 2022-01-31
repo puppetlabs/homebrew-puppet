@@ -4,4 +4,4 @@
 */pdk.*            @puppetlabs/pdk
 */puppet-agent*    @puppetlabs/phoenix
 */pe-client-tools* @puppetlabs/skeletor
-*/relay.*          @puppetlabs/nebula-community
+*/relay.*          @puppetlabs/relay-community
