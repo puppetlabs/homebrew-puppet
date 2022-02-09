@@ -18,12 +18,12 @@ cask 'pdk' do
     sha256 '81271634502b0e2f2ed11b07262ceec460f677cf2836af6e0b8ad9eed5e660ef'
   when '10.15'
     os_ver = '10.15'
-    version '2.3.0.0'
-    sha256 '5fb1bfdbcd6c2b23dbf366c4d986999d8b882ac68723409cb1e8e205b3b809c5'
+    version '2.4.0.1'
+    sha256 '5fb7d2958902c9f6fd197d6ea3406f7ea6e687eef3c7b6cc93bbc13446d4228a'
   else
     os_ver = '11'
-    version '2.3.0.0'
-    sha256 '1cb3a3c3159ae8aa7d69bcd784982b31fd10e4bdceaa17b0bdcdb314929642b3'
+    version '2.4.0.1'
+    sha256 '5195c3744213c59ebf5c8d25971d3f88f9d2e63c47fc5dd2ed4d40cc452c5996'
   end
 
   depends_on macos: '>= :el_capitan'
