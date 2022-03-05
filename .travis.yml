@@ -33,3 +33,6 @@ matrix:
     - osx_image: xcode12.5
       env: FORMULA=relay
       script: brew install Formula/$FORMULA.rb
+    - osx_image: xcode12.5
+      env: FORMULA=kubectl-ran
+      script: brew install Formula/$FORMULA.rb
