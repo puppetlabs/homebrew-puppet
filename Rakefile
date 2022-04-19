@@ -30,6 +30,7 @@ VERSION_TO_CODENAME = {
   '10.14' => :mojave,
   '10.15' => :catalina,
   '11'    => :big_sur,
+  '12'    => :monterey,
 }
 
 LATEST_PE = '2021'
@@ -41,7 +42,7 @@ CLIENT_TOOLS = {
 
 def operating_systems(collection, pkg = nil)
   if %w[puppet-bolt].include?(pkg)
-    return %w[10.11 10.12 10.13 10.14 10.15 11]
+    return %w[10.11 10.12 10.13 10.14 10.15 11 12]
   end
 
   case collection
@@ -52,11 +53,11 @@ def operating_systems(collection, pkg = nil)
   when 'puppet5'
     %w[10.10 10.11 10.12 10.13 10.14 10.15]
   when 'puppet7'
-    %w[10.14 10.15 11]
+    %w[10.14 10.15 11 12]
   when 'puppet'
-    %w[10.14 10.15 11]
+    %w[10.14 10.15 11 12]
   else
-    %w[10.11 10.12 10.13 10.14 10.15 11]
+    %w[10.11 10.12 10.13 10.14 10.15 11 12]
   end
 end
 
