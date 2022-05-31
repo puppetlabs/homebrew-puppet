@@ -1,5 +1,6 @@
 os: osx
-# These represent OS X 10.15 - 11.3.
+# These represent macOS 10.15 - 11.3.
+# https://docs.travis-ci.com/user/reference/osx
 osx_image:
   - xcode12.5 # 11.3
   - xcode12.2 # 10.15
@@ -27,9 +28,6 @@ script:
   - brew install --cask Casks/$CASK.rb --force
 matrix:
   include:
-    - osx_image: xcode12.5
-      env: FORMULA=wash
-      script: brew install Formula/$FORMULA.rb
     - osx_image: xcode12.5
       env: FORMULA=relay
       script: brew install Formula/$FORMULA.rb
