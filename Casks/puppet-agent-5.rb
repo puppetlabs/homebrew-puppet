@@ -26,7 +26,6 @@ cask 'puppet-agent-5' do
     sha256 '5914ccf0d1c4a90688458fc1cb12ee1282a737e3841f9997975477c7d97baf61'
   end
 
-  depends_on macos: '>= :yosemite'
   url "https://downloads.puppet.com/mac/puppet5/#{os_ver}/x86_64/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
