@@ -26,8 +26,14 @@ cask 'puppet-agent-6' do
     sha256 '09be98465a129ef0657968f8e7efae095c2979506961a60bd8a46144a169036d'
   end
 
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
   depends_on macos: '>= :sierra'
-  url "https://downloads.puppet.com/mac/puppet6/#{os_ver}/x86_64/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
+  url "https://downloads.puppet.com/mac/puppet6/#{os_ver}/#{arch}/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
   name 'Puppet Agent'
