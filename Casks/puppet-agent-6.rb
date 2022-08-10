@@ -1,4 +1,10 @@
 cask 'puppet-agent-6' do
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
   case MacOS.version
   when '10.12'
     os_ver = '10.12'
@@ -19,17 +25,19 @@ cask 'puppet-agent-6' do
   when '11'
     os_ver = '11'
     version '6.28.0'
-    sha256 '2e2eaa07b8b1be952e6c19f64ca4a25870e3e3ceca7fe0547fdc7039684049ae'
+    if arch == 'arm64'
+      sha256 '2581140b46c7185de02d4e6ca7f087d6c4a339f3df31ba32218b679657848491'
+    elsif arch == 'x86_64'
+      sha256 '2e2eaa07b8b1be952e6c19f64ca4a25870e3e3ceca7fe0547fdc7039684049ae'
+    end
   else
     os_ver = '12'
     version '6.28.0'
-    sha256 '09be98465a129ef0657968f8e7efae095c2979506961a60bd8a46144a169036d'
-  end
-
-  if MacOS.version < :catalina
-    arch = 'x86_64'
-  else
-    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+    if arch == 'arm64'
+      sha256 '5d243f1c112de9a02e63b09783f42198c0e0f63249a07e5e18260b8b94f5cef7'
+    elsif arch == 'x86_64'
+      sha256 '09be98465a129ef0657968f8e7efae095c2979506961a60bd8a46144a169036d'
+    end
   end
 
   depends_on macos: '>= :sierra'
