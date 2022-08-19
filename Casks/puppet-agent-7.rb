@@ -1,4 +1,10 @@
 cask 'puppet-agent-7' do
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
   case MacOS.version
   when '10.15'
     os_ver = '10.15'
@@ -7,17 +13,19 @@ cask 'puppet-agent-7' do
   when '11'
     os_ver = '11'
     version '7.18.0'
-    sha256 'aa1059aa51ef979b4d47104430afe65f715afb3e496bdc933a2d16d5c20a8fbe'
+    if arch == 'arm64'
+      sha256 '3edd5579407501dcb4321107cb7eafdad1bcf8d4cdceb37980ebc01dcb96218a'
+    elsif arch == 'x86_64'
+      sha256 'aa1059aa51ef979b4d47104430afe65f715afb3e496bdc933a2d16d5c20a8fbe'
+    end
   else
     os_ver = '12'
     version '7.18.0'
-    sha256 'dd5c3a608793d2e8bb8046357ee4908960afda987e467b6088799594ec2df247'
-  end
-
-  if MacOS.version < :catalina
-    arch = 'x86_64'
-  else
-    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+    if arch == 'arm64'
+      sha256 'eec2447eab9648c0ebacaaaad3ad21efecaf6a720aa46ea1f57b0cbe1ea842fb'
+    elsif arch == 'x86_64'
+      sha256 'dd5c3a608793d2e8bb8046357ee4908960afda987e467b6088799594ec2df247'
+    end
   end
 
   depends_on macos: '>= :catalina'
