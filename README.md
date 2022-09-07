@@ -167,3 +167,7 @@ rake 'brew:pe_client_tools[2019.8]'
 ```
 
 Internally, we can look for the available versions by poking around on http://builds.puppetlabs.lan/pe-client-tools/
+
+### This is a test change
+
+Hi, I'm testing!
