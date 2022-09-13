@@ -9,7 +9,11 @@ cask 'puppet-agent-7' do
   when '10.15'
     os_ver = '10.15'
     version '7.18.0'
-    sha256 'be54e95d765fec76a7f38b1586388845abbcc061640d3c9f5afc9ef3981af599'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 'be54e95d765fec76a7f38b1586388845abbcc061640d3c9f5afc9ef3981af599'
+    end
   when '11'
     os_ver = '11'
     version '7.18.0'

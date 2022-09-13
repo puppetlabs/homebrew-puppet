@@ -1,27 +1,35 @@
 cask 'puppet-agent' do
-  case MacOS.version
-  when '10.14'
-    os_ver = '10.14'
-    version '7.9.0'
-    sha256 '539f2cbacf20bd2bed3bd7f173dc07aa99d9305a8cb91408e450e8b39ba0177d'
-  when '10.15'
-    os_ver = '10.15'
-    version '7.17.0'
-    sha256 '8c4eff08e57dd12d6e45d1a7ab95980e147321d4c4421208d8dd90450e62e0f0'
-  when '11'
-    os_ver = '11'
-    version '7.17.0'
-    sha256 'c701d2b0eb30614e27ad5358e50537544bf625864fe695963a70260878e7705e'
-  else
-    os_ver = '12'
-    version '7.17.0'
-    sha256 '3854ced5b4c0315a691bddf666165178f1a164d088c2ffcbe3af108ef8fb04b3'
-  end
-
   if MacOS.version < :catalina
     arch = 'x86_64'
   else
     arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
+  case MacOS.version
+  when '10.15'
+    os_ver = '10.15'
+    version '7.18.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 'be54e95d765fec76a7f38b1586388845abbcc061640d3c9f5afc9ef3981af599'
+    end
+  when '11'
+    os_ver = '11'
+    version '7.18.0'
+    if arch == 'arm64'
+      sha256 '3edd5579407501dcb4321107cb7eafdad1bcf8d4cdceb37980ebc01dcb96218a'
+    elsif arch == 'x86_64'
+      sha256 'aa1059aa51ef979b4d47104430afe65f715afb3e496bdc933a2d16d5c20a8fbe'
+    end
+  else
+    os_ver = '12'
+    version '7.18.0'
+    if arch == 'arm64'
+      sha256 'eec2447eab9648c0ebacaaaad3ad21efecaf6a720aa46ea1f57b0cbe1ea842fb'
+    elsif arch == 'x86_64'
+      sha256 'dd5c3a608793d2e8bb8046357ee4908960afda987e467b6088799594ec2df247'
+    end
   end
 
   depends_on macos: '>= :mojave'

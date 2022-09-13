@@ -82,12 +82,17 @@ namespace :brew do
     package_triples = os_versions.zip(latest_versions).map do |os_ver, pkg_ver|
       if pkg_ver
         resp = fetch("#{path_pre}#{os_ver}/x86_64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
-        sha = Digest::SHA256.hexdigest(resp.body)
-        [os_ver, pkg_ver, sha]
+        x86_64_sha = Digest::SHA256.hexdigest(resp.body)
+        arm64_sha = 'nil'
+        if os_ver.to_i >= 11
+          resp_arm64 = fetch("#{path_pre}#{os_ver}/arm64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
+          arm64_sha  = Digest::SHA256.hexdigest(resp_arm64.body)
+        end
+        [os_ver, pkg_ver, x86_64_sha, arm64_sha]
       end
     end.compact
 
-    url = "#{path_pre}"+'#{os_ver}/x86_64/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
+    url = "#{path_pre}"+'#{os_ver}/#{arch}/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
 
     source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
 

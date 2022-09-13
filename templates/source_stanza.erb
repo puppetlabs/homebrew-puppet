@@ -1,14 +1,22 @@
   case MacOS.version
-<% package_triples.take(package_triples.count-1).each do |os_ver, pkg_ver, sha| -%>
+<% package_triples.take(package_triples.count-1).each do |os_ver, pkg_ver, x86_64_sha, arm64_sha| -%>
   when '<%= os_ver %>'
     os_ver = '<%= os_ver %>'
     version '<%= pkg_ver %>'
-    sha256 '<%= sha %>'
+    if arch == 'arm64'
+      sha256 '<%= arm64_sha %>'
+    elsif arch == 'x86_64'
+      sha256 '<%= x86_64_sha %>'
+    end
 <% end -%>
   else
     os_ver = '<%= package_triples.last[0] %>'
     version '<%= package_triples.last[1] %>'
-    sha256 '<%= package_triples.last[2] %>'
+    if arch == 'arm64'
+      sha256 '<%= package_triples.last[2] %>'
+    elsif arch == 'x86_64'
+      sha256 '<%= package_triples.last[3] %>'
+    end
   end
 
   depends_on macos: '>= :<%= VERSION_TO_CODENAME[package_triples[0][0]] %>'
