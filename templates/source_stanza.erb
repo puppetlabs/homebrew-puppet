@@ -12,9 +12,9 @@
   else
     os_ver = '<%= package_triples.last[0] %>'
     version '<%= package_triples.last[1] %>'
-    if arch == 'arm64'
+    if arch == 'x86_64'
       sha256 '<%= package_triples.last[2] %>'
-    elsif arch == 'x86_64'
+    elsif arch == 'arm64'
       sha256 '<%= package_triples.last[3] %>'
     end
   end
