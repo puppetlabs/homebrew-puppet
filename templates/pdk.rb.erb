@@ -1,4 +1,10 @@
 cask 'pdk' do
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
 <%= source_stanza %>
   name 'Puppet Development Kit'
   homepage 'https://github.com/puppetlabs/pdk'

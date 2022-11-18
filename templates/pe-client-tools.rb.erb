@@ -1,4 +1,10 @@
 cask 'pe-client-tools' do
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
 <%= source_stanza %>
   name 'PE Client Tools'
   homepage "https://puppet.com/docs/pe/latest/installing_pe_client_tools.html"
