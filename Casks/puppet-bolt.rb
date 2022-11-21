@@ -1,9 +1,13 @@
 cask 'puppet-bolt' do
-  if MacOS.version < :catalina
-    arch = 'x86_64'
-  else
-    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
-  end
+  ## TODO: BOLT-1604, enable this when we build packsages for ARM.
+  ## For now the x86 emulator on mac seems to work well enough (and users are already on it),
+  ## so just statically set arch to x86_64 now
+  arch = 'x86_64'
+  # if MacOS.version < :catalina
+  #   arch = 'x86_64'
+  # else
+  #   arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  # end
 
   case MacOS.version
   when '10.11'
