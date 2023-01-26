@@ -1,21 +1,66 @@
 cask 'pdk' do
+  arch = 'x86_64'
   case MacOS.version
+  when '10.11'
+    os_ver = '10.11'
+    version '1.16.0.2'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 'ead0d9089225efe5270e59790253011392b02a37d615d82c7d19faa78df1fa4b'
+    end
+  when '10.12'
+    os_ver = '10.12'
+    version '1.16.0.2'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '2c1c39ee111be3325c8bc2e36323d3b60d504ba5038053a1aa8d4d3567f79642'
+    end
+  when '10.13'
+    os_ver = '10.13'
+    version '1.17.0.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 'e260500af2cbe07d31b880bffe5c7bcc1b3823cc3472a75829e8a582b197931d'
+    end
   when '10.14'
     os_ver = '10.14'
     version '2.3.0.0'
-    sha256 '81271634502b0e2f2ed11b07262ceec460f677cf2836af6e0b8ad9eed5e660ef'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '81271634502b0e2f2ed11b07262ceec460f677cf2836af6e0b8ad9eed5e660ef'
+    end
   when '10.15'
     os_ver = '10.15'
-    version '2.6.0.0'
-    sha256 'ab3e90440f97bf98b965d8ba3707a0c88d3edabb2235d3db4567a129dc79619d'
-  else
+    version '2.6.1.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '292df77ef5ed1170c497e46dbd21cebfd5230b09a160a75ffa01b8653e7fa339'
+    end
+  when '11'
     os_ver = '11'
-    version '2.6.0.0'
-    sha256 '8a96286c76b4a19bfe701cdd058d27668288d58171dee47e6ada9c7dc3b34b8c'
+    version '2.6.1.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '2b52f3034ae1b8e93d0079c571881f831ef17955aae9d5cb793ee59a4602fdf1'
+    end
+  else
+    os_ver = '12'
+    version '2.6.1.0'
+    if arch == 'x86_64'
+      sha256 '479f002a5edd0083326a502e36f9738ee02ca252032b15cec100117bae1d07f0'
+    elsif arch == 'arm64'
+      sha256 'nil'
+    end
   end
 
   depends_on macos: '>= :el_capitan'
-  url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/x86_64/pdk-#{version}-1.osx#{os_ver}.dmg"
+  url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/#{arch}/pdk-#{version}-1.osx#{os_ver}.dmg"
   pkg "pdk-#{version}-1-installer.pkg"
 
   name 'Puppet Development Kit'
