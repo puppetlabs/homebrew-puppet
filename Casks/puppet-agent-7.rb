@@ -8,27 +8,27 @@ cask 'puppet-agent-7' do
   case MacOS.version
   when '10.15'
     os_ver = '10.15'
-    version '7.21.0'
+    version '7.23.0'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 '00679fefb1116774e265455b7c3bad05badeacbcdde845c428ba0b2bcaf8cf3e'
+      sha256 'f4af2bf66b6fbbe9931fda40ea2cf813131eaa543156a7123738d8bb4ac19fd5'
     end
   when '11'
     os_ver = '11'
-    version '7.21.0'
+    version '7.23.0'
     if arch == 'arm64'
-      sha256 '88a7a8b584bd2211b42182cc59c6a9ec83c1ceeb7b9b511a9d9635afe698854b'
+      sha256 '6bf85e2ef46f3384fbda6e50799a1010796c2d5c365da670f2368599507d7b46'
     elsif arch == 'x86_64'
-      sha256 'fe37b9192f44f14b679d2b0e90e711b6e3cbde98d97b2fa2be2bcb8171be5518'
+      sha256 'da16afefcfbee0f03e3773aa7e06a29b91fbe059ba6520ecee339adb4c48d9b5'
     end
   else
     os_ver = '12'
-    version '7.21.0'
+    version '7.23.0'
     if arch == 'x86_64'
-      sha256 '3caee32c99efcd58fad2f71682792367b69986d4481033961828ad8c22c62ed2'
+      sha256 '27163b7ca4767b9bcbdc5ee8c9bacd7e9fd15ef082cec17f58fef7a09c5cc619'
     elsif arch == 'arm64'
-      sha256 '585a51599bd92a578f582cb8476f3d459f4a91ecc18add2fccde32492db3f1b6'
+      sha256 'c994c1c438f2fa34b99c08fe38ef8373aa4c152f12838de5fc9a6090b69708da'
     end
   end
 
