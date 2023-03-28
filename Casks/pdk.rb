@@ -1,26 +1,25 @@
 cask 'pdk' do
   arch = 'x86_64'
-
   case MacOS.version
   when '11'
     os_ver = '11'
-    version '2.7.0.0'
+    version '2.7.1.0'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 '833f326d7d638facae17a8ed10e2da121525fd3f2eecfaf4105d951190711519'
+      sha256 '58086130971e34d9a365e6862265c8ed0a91b16885869420ff0e5f93034532cd'
     end
   else
     os_ver = '12'
-    version '2.7.0.0'
+    version '2.7.1.0'
     if arch == 'x86_64'
-      sha256 '162cf43958400b15b7f32b754939cb7f546f58275fa05a3dd9025eb20a5711cf'
+      sha256 'dff82317cb1e9c4ed29c6c706c5bb22220cf56bdba7179e7847db656204cc833'
     elsif arch == 'arm64'
       sha256 'nil'
     end
   end
 
-  depends_on macos: '>= :el_capitan'
+  depends_on macos: '>= :big_sur'
   url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/#{arch}/pdk-#{version}-1.osx#{os_ver}.dmg"
   pkg "pdk-#{version}-1-installer.pkg"
 
