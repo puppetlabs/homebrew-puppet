@@ -73,4 +73,13 @@ cask 'puppet-agent-6' do
                '~/.puppetlabs',
                '/etc/puppetlabs',
              ]
+
+  caveats do
+    discontinued
+
+    <<~EOS
+      #{token} has been deprecated in favor of puppet-agent-7.
+        brew install --cask puppet-agent-7
+    EOS
+  end
 end
