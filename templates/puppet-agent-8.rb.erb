@@ -1,0 +1,22 @@
+cask 'puppet-agent-8' do
+  if MacOS.version < :monterey
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
+<%= source_stanza %>
+  name 'Puppet Agent'
+  homepage "https://puppet.com/docs/puppet/#{version.major_minor}/about_agent.html"
+
+  uninstall launchctl: [
+                         'puppet',
+                         'pxp-agent',
+                       ],
+            pkgutil:   'com.puppetlabs.puppet-agent'
+
+  zap trash: [
+               '~/.puppetlabs',
+               '/etc/puppetlabs',
+             ]
+end
