@@ -58,6 +58,8 @@ def operating_systems(collection, pkg = nil)
     %w[10.15 11 12]
   when 'puppet'
     %w[10.15 11 12]
+  when 'puppet8'
+    %w[11 12]
   else
     %w[10.11 10.12 10.13 10.14 10.15 11 12]
   end
@@ -88,7 +90,7 @@ namespace :brew do
         resp = fetch("#{path_pre}#{os_ver}/x86_64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
         x86_64_sha = Digest::SHA256.hexdigest(resp.body)
         arm64_sha = 'nil'
-        if pkg == 'puppet-agent' && os_ver.to_i >= 11
+        if pkg == 'puppet-agent' && os_ver.to_i > 11 && cask == 'puppet-8 '|| pkg == 'puppet-agent' && os_ver.to_i >= 11 && cask == 'puppet7'
           resp_arm64 = fetch("#{path_pre}#{os_ver}/arm64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
           arm64_sha  = Digest::SHA256.hexdigest(resp_arm64.body)
         end
