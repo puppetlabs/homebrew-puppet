@@ -8,17 +8,17 @@ cask 'puppet-agent-8' do
   case MacOS.version
   when '11'
     os_ver = '11'
-    version '8.0.0'
+    version '8.1.0'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 '6282522db6697469297f634479c0c7fe63c65ea8cd7f82647aafc2373e6dc580'
+      sha256 '83bce32591927318ace67664038ce40153b06aab5358a3f3452cd54508c4d5c5'
     end
   else
     os_ver = '12'
-    version '8.0.0'
+    version '8.1.0'
     if arch == 'x86_64'
-      sha256 '5f91c7c5a90ef7ff972c376625e29a9799cf1f0764164d0665c99298eb8445e5'
+      sha256 'ba41de1897a09aed6da5e5afdef6b4a6622ff034bf919d3eb7fd7b21b086994d'
     elsif arch == 'arm64'
       sha256 'nil'
     end
