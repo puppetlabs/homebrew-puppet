@@ -8,23 +8,31 @@ cask 'puppet-agent' do
   case MacOS.version
   when '11'
     os_ver = '11'
-    version '7.25.0'
+    version '7.26.0'
     if arch == 'arm64'
-      sha256 'e3b24be25b08726074fb3d76abfbe59291b383ce874da6af0c2f80da66b1bac6'
+      sha256 'eb4398daf3647f6bcc6c387b4049c8d74b634afe45a286335f5d762c6b5c5fbf'
     elsif arch == 'x86_64'
-      sha256 '257ce39fc5d761873e61efedaf655ffc4c8e7f86642481387ee1af662bb03741'
+      sha256 'ae6a44ca69a357018445da3089a19627c3330330176991d266bcc9db676c6ae4'
+    end
+  when '12'
+    os_ver = '12'
+    version '7.26.0'
+    if arch == 'arm64'
+      sha256 '21c3103915742b6e8a4ec93f6d55c48e9ec4161809168a53a60819b8c173c6df'
+    elsif arch == 'x86_64'
+      sha256 'af86dcf0645dbd274a116b9eed069e8f4667b663bbca85524bad5e157d3435c1'
     end
   else
-    os_ver = '12'
-    version '7.25.0'
+    os_ver = '13'
+    version '7.26.0'
     if arch == 'x86_64'
-      sha256 'b2bfd5581bfc1c5412d17dcd7b5e2d307f9d4d55e63a0a72cb11a657885009c0'
+      sha256 '72a03a71c11df96954f169a5ce36c66d94ffedb843ec637338311f8630ecc7b7'
     elsif arch == 'arm64'
-      sha256 '8cb860ecdb2f7222088146769a47f0b2dc3d3176a836e3011239221511b8d71f'
+      sha256 '72c3539a440fb84c8ece5b6ed84f9f3878b0640c0d40357e6764edc26888f384'
     end
   end
 
-  depends_on macos: '>= :catalina'
+  depends_on macos: '>= :big_sur'
   url "https://downloads.puppet.com/mac/puppet/#{os_ver}/#{arch}/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
