@@ -31,6 +31,7 @@ VERSION_TO_CODENAME = {
   '10.15' => :catalina,
   '11'    => :big_sur,
   '12'    => :monterey,
+  '13'    => :ventura,
 }
 
 LATEST_PE = '2021'
@@ -55,13 +56,13 @@ def operating_systems(collection, pkg = nil)
   when 'pct2021'
     %w[10.14 10.15]
   when 'puppet7'
-    %w[10.15 11 12]
+    %w[11 12 13]
   when 'puppet'
-    %w[10.15 11 12]
+    %w[11 12 13]
   when 'puppet8'
-    %w[11 12]
+    %w[11 12 13]
   else
-    %w[10.11 10.12 10.13 10.14 10.15 11 12]
+    %w[10.11 10.12 10.13 10.14 10.15 11 12 13]
   end
 end
 
@@ -90,7 +91,7 @@ namespace :brew do
         resp = fetch("#{path_pre}#{os_ver}/x86_64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
         x86_64_sha = Digest::SHA256.hexdigest(resp.body)
         arm64_sha = 'nil'
-        if pkg == 'puppet-agent' && os_ver.to_i > 11 && cask == 'puppet-8 '|| pkg == 'puppet-agent' && os_ver.to_i >= 11 && cask == 'puppet7'
+        if pkg == 'puppet-agent' && os_ver.to_i > 11 && cask == 'puppet-agent-8' || pkg == 'puppet-agent' && cask != 'puppet-agent-8'
           resp_arm64 = fetch("#{path_pre}#{os_ver}/arm64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
           arm64_sha  = Digest::SHA256.hexdigest(resp_arm64.body)
         end
@@ -100,9 +101,9 @@ namespace :brew do
 
     url = "#{path_pre}"+'#{os_ver}/#{arch}/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
 
-    source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
+    source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), trim_mode: '-').result(binding)
 
-    cask_erb = ERB.new(File.read(File.join(__dir__, 'templates', "#{cask}.rb.erb")), 0, '-')
+    cask_erb = ERB.new(File.read(File.join(__dir__, 'templates', "#{cask}.rb.erb")), trim_mode: '-')
     File.write(File.join(__dir__, 'Casks', "#{cask}.rb"), cask_erb.result(binding))
   end
 
