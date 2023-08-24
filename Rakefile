@@ -91,7 +91,7 @@ namespace :brew do
         resp = fetch("#{path_pre}#{os_ver}/x86_64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
         x86_64_sha = Digest::SHA256.hexdigest(resp.body)
         arm64_sha = 'nil'
-        if pkg == 'puppet-agent' && os_ver.to_i > 11 && cask == 'puppet-8 '|| pkg == 'puppet-agent' && os_ver.to_i >= 11 && cask == 'puppet7'
+        if pkg == 'puppet-agent' && os_ver.to_i > 11 && cask == 'puppet-agent-8' || pkg == 'puppet-agent' && cask != 'puppet-agent-8'
           resp_arm64 = fetch("#{path_pre}#{os_ver}/arm64/#{pkg}-#{pkg_ver}-1.osx#{os_ver}.dmg")
           arm64_sha  = Digest::SHA256.hexdigest(resp_arm64.body)
         end
