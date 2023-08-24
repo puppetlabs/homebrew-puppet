@@ -101,9 +101,9 @@ namespace :brew do
 
     url = "#{path_pre}"+'#{os_ver}/#{arch}/'+pkg+'-#{version}-1.osx#{os_ver}.dmg'
 
-    source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), 0, '-').result(binding)
+    source_stanza = ERB.new(File.read(File.join(__dir__, 'templates', "source_stanza.erb")), trim_mode: '-').result(binding)
 
-    cask_erb = ERB.new(File.read(File.join(__dir__, 'templates', "#{cask}.rb.erb")), 0, '-')
+    cask_erb = ERB.new(File.read(File.join(__dir__, 'templates', "#{cask}.rb.erb")), trim_mode: '-')
     File.write(File.join(__dir__, 'Casks', "#{cask}.rb"), cask_erb.result(binding))
   end
 
