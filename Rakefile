@@ -56,9 +56,9 @@ def operating_systems(collection, pkg = nil)
   when 'pct2021'
     %w[10.14 10.15]
   when 'puppet7'
-    %w[10.15 11 12 13]
+    %w[11 12 13]
   when 'puppet'
-    %w[10.15 11 12 13]
+    %w[11 12 13]
   when 'puppet8'
     %w[11 12 13]
   else
