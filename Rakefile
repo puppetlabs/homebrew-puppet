@@ -32,6 +32,7 @@ VERSION_TO_CODENAME = {
   '11'    => :big_sur,
   '12'    => :monterey,
   '13'    => :ventura,
+  '14'    => :sonoma,
 }
 
 LATEST_PE = '2021'
@@ -56,13 +57,13 @@ def operating_systems(collection, pkg = nil)
   when 'pct2021'
     %w[10.14 10.15]
   when 'puppet7'
-    %w[11 12 13]
+    %w[11 12 13 14]
   when 'puppet'
-    %w[11 12 13]
+    %w[11 12 13 14]
   when 'puppet8'
-    %w[11 12 13]
+    %w[11 12 13 14]
   else
-    %w[10.11 10.12 10.13 10.14 10.15 11 12 13]
+    %w[10.11 10.12 10.13 10.14 10.15 11 12 13 14]
   end
 end
 
