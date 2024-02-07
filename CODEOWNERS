@@ -1,7 +1,7 @@
 *                  @MikaelSmith
 */wash.*           @puppetlabs/wash
 */puppet-bolt.*    @puppetlabs/bolt
-*/pdk.*            @puppetlabs/tooling
+*/pdk.*            @puppetlabs/devx
 */puppet-agent*    @puppetlabs/phoenix
 */pe-client-tools* @puppetlabs/skeletor
 */relay.*          @puppetlabs/relay-community
