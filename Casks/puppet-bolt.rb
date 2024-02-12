@@ -52,17 +52,17 @@ cask 'puppet-bolt' do
     end
   when '11'
     os_ver = '11'
-    version '3.27.4'
+    version '3.28.0'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 'ff7c1d38fc0c2ace7c3fe52dc5f98cc88fb3d00d10d2095cca3b8a2b6a0a4ea8'
+      sha256 '088bb90b9ef8e3d231f874174bd0e3f7366abb78ec21bd71e6083787a0392ecc'
     end
   else
     os_ver = '12'
-    version '3.27.4'
+    version '3.28.0'
     if arch == 'x86_64'
-      sha256 '50e66d9cff4fa15f1dace2002570e217d0eb957c8b53d4774a658213471e94f5'
+      sha256 '09499cb4309a1d522ec50fe8246180dcc0e1ff150818f17493e60bf3d6003dc3'
     elsif arch == 'arm64'
       sha256 'nil'
     end
