@@ -1,22 +1,17 @@
 cask 'pdk' do
   arch = 'x86_64'
+  version '3.2.0.1'
+
   case MacOS.version
   when '11'
     os_ver = '11'
-    version '3.0.1.3'
-    if arch == 'arm64'
-      sha256 'nil'
-    elsif arch == 'x86_64'
-      sha256 '4f172474364d7ca1f98adf4923822f55f06df7522551f201cc1d2d39ebb70fd6'
-    end
-  else
+    sha256 '204e84fc01ff386a808e4775fc07e335f0e471cc0700355198c42ec67d6befbe'
+  when '12'
     os_ver = '12'
-    version '3.0.1.3'
-    if arch == 'x86_64'
-      sha256 '7a01a66fdcc1e2d0cbd03c13d6998d5d96a527cb78c678c1387ffe06e6c44fbc'
-    elsif arch == 'arm64'
-      sha256 'nil'
-    end
+    sha256 '8e75486f6c950f566e1843b1b7c41a2641767b1c43faad138d479cd1e25a574e'
+  else
+    os_ver = '13'
+    sha256 'b634140bae18a6c7009e08b2a92383ccbe12512eacecd45c5c0cd07a6415d5b8'
   end
 
   depends_on macos: '>= :big_sur'
