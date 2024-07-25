@@ -1,4 +1,3 @@
-*                  @MikaelSmith
 */puppet-bolt.*    @puppetlabs/bolt
 */pdk.*            @puppetlabs/devx
 */puppet-agent*    @puppetlabs/phoenix
