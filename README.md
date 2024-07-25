@@ -94,16 +94,6 @@ Additionally we maintain versioned casks for each collection
 - `puppetlabs/puppet/puppet-agent-6`
 - `puppetlabs/puppet/puppet-agent-7`
 
-### Wash
-
-To install [Wash](https://github.com/puppetlabs/wash) with brew:
-
-```bash
-brew install puppetlabs/puppet/wash
-```
-
-This will build Wash (with Go) and install it to `/usr/local/bin/wash`.
-
 ## Migrating from pre-tap installations
 
 If you previously installed the PDK or Bolt from homebrew before this tap existed, you will see errors about the keg not existing or the cask already being installed.

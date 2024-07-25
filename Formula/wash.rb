@@ -10,6 +10,8 @@ class Wash < Formula
   option "with-coreutils", "Enables relative paths in the shell prompt using realpath"
   depends_on "coreutils" => :recommended
 
+  deprecate! date: "2024-07-25", because: :repo_archived
+
   def install
     system "go build -ldflags='-w -s -X github.com/puppetlabs/wash/cmd/version.BuildVersion=#{version}'"
     bin.install "wash" => "wash"

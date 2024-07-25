@@ -1,5 +1,4 @@
 *                  @MikaelSmith
-*/wash.*           @puppetlabs/wash
 */puppet-bolt.*    @puppetlabs/bolt
 */pdk.*            @puppetlabs/devx
 */puppet-agent*    @puppetlabs/phoenix
