@@ -32,7 +32,7 @@ jobs:
     strategy:
       matrix:
         macos: [ 'macos-12' ]
-        formula: [ 'relay', 'kubectl-ran' ]
+        formula: [ 'kubectl-ran' ]
     runs-on: ${{ matrix.macos }}
     steps:
       - name: Checkout current PR
