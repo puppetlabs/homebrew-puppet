@@ -1,4 +1,10 @@
 cask 'pdk' do
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
+
   case MacOS.version
   when '11'
     os_ver = '11'
