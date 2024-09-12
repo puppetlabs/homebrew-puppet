@@ -1,17 +1,35 @@
 cask 'pdk' do
-  arch = 'x86_64'
-  version '3.2.0.1'
+  if MacOS.version < :catalina
+    arch = 'x86_64'
+  else
+    arch = Hardware::CPU.intel? ? 'x86_64' : 'arm64'
+  end
 
   case MacOS.version
   when '11'
     os_ver = '11'
-    sha256 '204e84fc01ff386a808e4775fc07e335f0e471cc0700355198c42ec67d6befbe'
+    version '3.3.0.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '607c0f213dfa3ace27fcdec1a80e3ef55f406d70482b829997bf9385c6a78423'
+    end
   when '12'
     os_ver = '12'
-    sha256 '8e75486f6c950f566e1843b1b7c41a2641767b1c43faad138d479cd1e25a574e'
+    version '3.3.0.0'
+    if arch == 'arm64'
+      sha256 'nil'
+    elsif arch == 'x86_64'
+      sha256 '9b7cc48378c7542da87109cea67eef424aa68b65877796f8fe8d8d5d3dfb5de0'
+    end
   else
     os_ver = '13'
-    sha256 'b634140bae18a6c7009e08b2a92383ccbe12512eacecd45c5c0cd07a6415d5b8'
+    version '3.3.0.0'
+    if arch == 'x86_64'
+      sha256 '630420593f50b8cf351bb9a4846a176b61162d0490da7bf9895b620d7c86183f'
+    elsif arch == 'arm64'
+      sha256 'daf4d05ca17ad0dea2c3413c0771a6bce5f8bf156ddf0c400d9d4ce99411d2d7'
+    end
   end
 
   depends_on macos: '>= :big_sur'
