@@ -14,7 +14,7 @@ jobs:
     name: Install ${{ matrix.cask }} cask on ${{ matrix.macos }}
     strategy:
       matrix:
-        macos: [ 'macos-12', 'macos-13', 'macos-14' ]
+        macos: [ 'macos-13', 'macos-14' ]
         cask: [ 'pe-client-tools', 'pe-client-tools-2019.8', 'pdk', 'puppet-agent', 'puppet-agent-7', 'puppet-agent-8', 'puppet-bolt', 'puppet-bolt@2' ]
     env:
       HOMEBREW_LOGS: ~/homebrew-logs
@@ -31,7 +31,7 @@ jobs:
     name: Install ${{ matrix.formula }} formula on ${{ matrix.macos }}
     strategy:
       matrix:
-        macos: [ 'macos-12' ]
+        macos: [ 'macos-13' ]
         formula: [ 'kubectl-ran' ]
     runs-on: ${{ matrix.macos }}
     steps:
