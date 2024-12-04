@@ -8,27 +8,27 @@ cask 'pdk' do
   case MacOS.version
   when '11'
     os_ver = '11'
-    version '3.3.0.0'
+    version '3.4.0.1'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 '607c0f213dfa3ace27fcdec1a80e3ef55f406d70482b829997bf9385c6a78423'
+      sha256 'a0b2226e82513dbbb180c412a00cc6c348d376aec6a606ca4e83c5db7d8e7cf5'
     end
   when '12'
     os_ver = '12'
-    version '3.3.0.0'
+    version '3.4.0.1'
     if arch == 'arm64'
       sha256 'nil'
     elsif arch == 'x86_64'
-      sha256 '9b7cc48378c7542da87109cea67eef424aa68b65877796f8fe8d8d5d3dfb5de0'
+      sha256 '1650bc3e9aee0521ac38803edea92a89371d5c62429df0774b850b4860f63295'
     end
   else
     os_ver = '13'
-    version '3.3.0.0'
+    version '3.4.0.1'
     if arch == 'x86_64'
-      sha256 '630420593f50b8cf351bb9a4846a176b61162d0490da7bf9895b620d7c86183f'
+      sha256 '4141d07a1eca2fd264ad18f963be8280bf55415312c993b4bc2ec1d6db614eef'
     elsif arch == 'arm64'
-      sha256 'daf4d05ca17ad0dea2c3413c0771a6bce5f8bf156ddf0c400d9d4ce99411d2d7'
+      sha256 '560df5c9d885cc6d5860d1a61d9b5e9cff9d852f6ab669dee610b7d77a30b062'
     end
   end
 
