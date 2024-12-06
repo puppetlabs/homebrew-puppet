@@ -31,7 +31,7 @@ jobs:
     name: Install ${{ matrix.formula }} formula on ${{ matrix.macos }}
     strategy:
       matrix:
-        macos: [ 'macos-12' ]
+        macos: [ 'macos-14' ]
         formula: [ 'kubectl-ran' ]
     runs-on: ${{ matrix.macos }}
     steps:
