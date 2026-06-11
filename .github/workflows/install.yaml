@@ -26,7 +26,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: brew install --cask Casks/${{ matrix.cask }}.rb --force
+      - name: Link checkout as the puppetlabs/puppet tap
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/puppetlabs/homebrew-puppet"
+          mkdir -p "$(dirname "$tap_dir")"
+          rm -rf "$tap_dir"
+          ln -s "$GITHUB_WORKSPACE" "$tap_dir"
+      - run: brew install --cask puppetlabs/puppet/${{ matrix.cask }} --force
   install_formulae:
     name: Install ${{ matrix.formula }} formula on ${{ matrix.macos }}
     strategy:
@@ -39,4 +45,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: brew install Formula/${{ matrix.formula }}.rb
+      - name: Link checkout as the puppetlabs/puppet tap
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/puppetlabs/homebrew-puppet"
+          mkdir -p "$(dirname "$tap_dir")"
+          rm -rf "$tap_dir"
+          ln -s "$GITHUB_WORKSPACE" "$tap_dir"
+      - run: brew install puppetlabs/puppet/${{ matrix.formula }}
