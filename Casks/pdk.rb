@@ -32,7 +32,7 @@ cask 'pdk' do
     end
   end
 
-  depends_on macos: '>= :big_sur'
+  depends_on macos: :big_sur
   url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/#{arch}/pdk-#{version}-1.osx#{os_ver}.dmg"
   pkg "pdk-#{version}-1-installer.pkg"
 
