@@ -68,7 +68,6 @@ cask 'puppet-bolt' do
     end
   end
 
-  depends_on macos: '>= :el_capitan'
   url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/#{arch}/puppet-bolt-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-bolt-#{version}-1-installer.pkg"
 

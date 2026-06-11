@@ -22,7 +22,6 @@ cask 'pdk@1' do
     sha256 '5ee08d46b072b418f3256d0f47d2979255b69e1b5d3e5ba207be390b75eb6482'
   end
 
-  depends_on macos: '>= :el_capitan'
   url "https://downloads.puppet.com/mac/puppet-tools/#{os_ver}/x86_64/pdk-#{version}-1.osx#{os_ver}.dmg"
   pkg "pdk-#{version}-1-installer.pkg"
 

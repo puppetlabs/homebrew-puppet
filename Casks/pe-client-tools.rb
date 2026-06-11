@@ -10,7 +10,6 @@ cask 'pe-client-tools' do
     sha256 '212568a6af374e40537c7180ae28d2083dc4f1ef8bbf26654019b1033a52d06c'
   end
 
-  depends_on macos: '>= :mojave'
   url "https://pm.puppet.com/pe-client-tools/2021.1.0/#{version}/repos/apple/#{os_ver}/PC1/x86_64/pe-client-tools-#{version}-1.osx#{os_ver}.dmg"
   pkg "pe-client-tools-#{version}-1-installer.pkg"
 

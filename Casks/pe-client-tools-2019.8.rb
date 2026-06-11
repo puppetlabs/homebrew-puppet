@@ -10,7 +10,6 @@ cask 'pe-client-tools-2019.8' do
     sha256 '3cb72c8ac071b46b8b60a40a2018b44346205b386a1ee07e2006cd66ce98e3cb'
   end
 
-  depends_on macos: '>= :mojave'
   url "https://pm.puppet.com/pe-client-tools/2019.8.6/#{version}/repos/apple/#{os_ver}/PC1/x86_64/pe-client-tools-#{version}-1.osx#{os_ver}.dmg"
   pkg "pe-client-tools-#{version}-1-installer.pkg"
 
