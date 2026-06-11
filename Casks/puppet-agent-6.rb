@@ -56,7 +56,6 @@ cask 'puppet-agent-6' do
     end
   end
 
-  depends_on macos: '>= :sierra'
   url "https://downloads.puppet.com/mac/puppet6/#{os_ver}/#{arch}/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 

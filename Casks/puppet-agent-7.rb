@@ -40,7 +40,7 @@ cask 'puppet-agent-7' do
     end
   end
 
-  depends_on macos: '>= :big_sur'
+  depends_on macos: :big_sur
   url "https://downloads.puppet.com/mac/puppet7/#{os_ver}/#{arch}/puppet-agent-#{version}-1.osx#{os_ver}.dmg"
   pkg "puppet-agent-#{version}-1-installer.pkg"
 
